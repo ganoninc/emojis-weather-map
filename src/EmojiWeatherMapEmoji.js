@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 class EmojiWeatherMapEmoji extends Component {
   render() {
     return (
-      <div className="emoji">
-      </div>
+      <span className="emoji" role="img" aria-label="Sun">
+      ☀️
+      </span>
     );
   }
 }

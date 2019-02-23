@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import EmojiWeatherMap from './EmojiWeatherMap'
 import './App.css';
-import EmojiWeatherMapFactory from './EmojiWeatherMapFactory'
 
 
 class App extends Component {
@@ -10,42 +9,47 @@ class App extends Component {
 
     this.state = {
       emojiWeatherMapTemplate: null,
-      isLoading: false
+      isLoadingTemplate: false
     };
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true });
+    this.setState({ isLoadingTemplate: true });
 
     fetch('./templates/france.json')
       .then(response => response.json())
-      .then(data => this.setState({ emojiWeatherMapTemplate: data, isLoading: false }));
+      .then(data => this.setState({ emojiWeatherMapTemplate: data, isLoadingTemplate: false }));
   }
 
   render() {
-    const { emojiWeatherMapTemplate, isLoading } = this.state;
+    const { emojiWeatherMapTemplate, isLoadingTemplate } = this.state;
     
-    if(isLoading || !emojiWeatherMapTemplate) {
+    if(isLoadingTemplate || !emojiWeatherMapTemplate) {
       return (
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Loading template...
-            </p>
-          </header>
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-sm-12 col-lg-4">
+                <h1>Emoji Weather Map</h1>
+                <p>Loading map...</p>
+              </div>
+            </div>
+          </div>
         </div>
       );
     } else {
-      const emojiWeatherMap = EmojiWeatherMapFactory.build(emojiWeatherMapTemplate);
       return (
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Template loaded!
-            </p>
-          </header>
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-sm-12 col-lg-4">
+                <h1>Emoji Weather Map</h1>
+              </div>
+              <div className="col-sm-12 col-lg-7 offset-lg-1">
+                <EmojiWeatherMap template={emojiWeatherMapTemplate}></EmojiWeatherMap>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }
