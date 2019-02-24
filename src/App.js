@@ -29,7 +29,7 @@ class App extends Component {
         <div className="App">
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-sm-12 col-lg-4">
+              <div className="col-lg-4">
                 <h1>Emoji Weather Map</h1>
                 <p>Loading map...</p>
               </div>
@@ -42,10 +42,10 @@ class App extends Component {
         <div className="App">
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-sm-12 col-lg-4">
+              <div className="col-lg-4">
                 <h1>Emoji Weather Map</h1>
               </div>
-              <div className="col-sm-12 col-lg-7 offset-lg-1">
+              <div className="col-lg-8">
                 <EmojiWeatherMap template={emojiWeatherMapTemplate}></EmojiWeatherMap>
               </div>
             </div>

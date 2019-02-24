@@ -1,16 +1,18 @@
 .EmojiWeatherMap {
+    padding: 25px;
     margin: auto;
     text-align: left;
-    font-size: 35pt;
-    min-width: 450px;
+    white-space: nowrap;
+    font-size: 40pt;
+    line-height: 40pt;
 }
 
 .emoji {
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .offset-space {
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 
@@ -18,15 +20,6 @@
 
     .EmojiWeatherMap {
         font-size: 25pt;
-        line-height: 30pt;
+        line-height: 25pt;
     }
-    
-    .emoji {
-        width: 30pt;
-    }
-    
-    .offset-space {
-        width: 14pt;
-    }
-
 }
