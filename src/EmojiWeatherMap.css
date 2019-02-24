@@ -15,11 +15,23 @@
     /* display: inline-block; */
 }
 
+.emoji-loading{
+    display: inline-block;
+    width: 40pt;
+    height: 40pt;
+}
+
 
 @media (max-width: 768px) { 
 
     .EmojiWeatherMap {
         font-size: 25pt;
         line-height: 25pt;
+    }
+
+    .emoji-loading{
+        display: inline-block;
+        width: 25pt;
+        height: 25pt;
     }
 }
