@@ -11,9 +11,9 @@ class EmojiWeatherMapRow extends Component {
         this.props.row.items.map( (item, index) => {
           let returnedItem = null;
           if (item.type === "offset") {
-            returnedItem = <EmojiWeatherMapOffset key={index} length={item.length}></EmojiWeatherMapOffset>
+            returnedItem = <EmojiWeatherMapOffset key={this.props.index + "-" + index} length={item.length}></EmojiWeatherMapOffset>
           } else if (item.type === "emoji") {
-            returnedItem = <EmojiWeatherMapEmoji key={index} geographicCoordinates={item.geographicCoordinates}></EmojiWeatherMapEmoji>
+            returnedItem = <EmojiWeatherMapEmoji key={this.props.index + "-" + index} geographicCoordinates={item.geographicCoordinates}></EmojiWeatherMapEmoji>
           }
           return returnedItem;
         })

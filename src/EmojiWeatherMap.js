@@ -8,7 +8,7 @@ class EmojiWeatherMap extends Component {
     return (
       <div className="EmojiWeatherMap">{
         this.props.template.rows.map( (row, index) => {
-          return <EmojiWeatherMapRow key={index} row={row}></EmojiWeatherMapRow>;
+          return <EmojiWeatherMapRow key={index} row={row} index={index}></EmojiWeatherMapRow>;
         })
       }</div>
     );
