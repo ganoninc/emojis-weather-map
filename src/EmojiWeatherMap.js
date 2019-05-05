@@ -10,7 +10,7 @@ class EmojiWeatherMap extends Component {
       <>
         <div className="EmojiWeatherMap">{
           this.props.template.rows.map( (row, index) => {
-            return <EmojiWeatherMapRow key={index} row={row}></EmojiWeatherMapRow>;
+            return <EmojiWeatherMapRow key={index} row={row} onLoading={this.props.onLoading} onLoaded={this.props.onLoaded}></EmojiWeatherMapRow>;
           })
         }</div>
         <EmojiWeatherMapLabel name={this.props.template.name} icon={this.props.template.icon}></EmojiWeatherMapLabel>

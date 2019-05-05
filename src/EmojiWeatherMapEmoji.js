@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LoadingImage from "./EmojiWeatherMapEmojiLoading.svg";
 
 class EmojiWeatherMapEmoji extends Component {
+  
   constructor(props) {
     super(props);
 
@@ -126,12 +127,23 @@ class EmojiWeatherMapEmoji extends Component {
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true });
+    this.setState(() => {
+      this.props.onLoading();
+      return { isLoading: true };
+    });
 
     fetch(this.dataProviderEndpoint)
       .then(response => response.text())
-      .then(data => this.setState({ isLoading: false, currentWeatherIcon: this.getCurrentWeatherIcon(data), currentWeatherLabel: this.getCurrentWeatherLabel(data) }));
+      .then(data => {
+        this.setState((state, props) => { 
+          props.onLoaded();
+          return {
+            isLoading: false, currentWeatherIcon: this.getCurrentWeatherIcon(data), currentWeatherLabel: this.getCurrentWeatherLabel(data)
+          };
+        });
+      });
   }
+
   render() {
     const { isLoading, currentWeatherIcon, currentWeatherLabel } = this.state;
 

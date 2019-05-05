@@ -13,7 +13,7 @@ class EmojiWeatherMapRow extends Component {
           if (item.type === "offset") {
             returnedItem = <EmojiWeatherMapOffset key={index} length={item.length}></EmojiWeatherMapOffset>
           } else if (item.type === "emoji") {
-            returnedItem = <EmojiWeatherMapEmoji key={index} geographicCoordinates={item.geographicCoordinates}></EmojiWeatherMapEmoji>
+            returnedItem = <EmojiWeatherMapEmoji key={index} geographicCoordinates={item.geographicCoordinates} onLoading={this.props.onLoading} onLoaded={this.props.onLoaded}></EmojiWeatherMapEmoji>
           }
           return returnedItem;
         })
