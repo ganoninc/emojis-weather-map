@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EmojiWeatherMapSelector from './EmojiWeatherMapSelector';
 import EmojiWeatherMap from './EmojiWeatherMap';
 import LoadingImage from "./EmojiWeatherMapEmojiLoading.svg";
 import './App.css';
@@ -10,6 +11,7 @@ class App extends Component {
 
     this.handleLoadingActionStart = this.handleLoadingActionStart.bind(this);
     this.handleLoadingActionEnd = this.handleLoadingActionEnd.bind(this);
+    this.handleSelectedMap = this.handleSelectedMap.bind(this);
 
     this.state = {
       emojiWeatherMapTemplate: null,
@@ -34,13 +36,16 @@ class App extends Component {
     });    
   }
 
-  componentDidMount() {
+  handleSelectedMap(mapTemplateURL) {
     this.setState({ isLoadingTemplate: true });
 
-    fetch('./templates/france.json')
+    fetch(mapTemplateURL)
       .then(response => response.json())
       .then(data => this.setState({ emojiWeatherMapTemplate: data, isLoadingTemplate: false }));
   }
+
+  // componentDidMount() {
+  // }
 
   render() {
     const { emojiWeatherMapTemplate, isLoadingTemplate, loadingActionsCount } = this.state;
@@ -56,9 +61,8 @@ class App extends Component {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-4 title">
-              <h1> Emoji Weather Map {loadingActionsCount > 0 ? <img alt="Loading" src={LoadingImage} />
-                : ""}</h1>
-              {/* <EmojiWeatherMapSelector></EmojiWeatherMapSelector> */}
+              <h1> Emoji Weather Map {loadingActionsCount > 0 ? <img alt="Loading" src={LoadingImage} />  : ""}</h1>
+              <EmojiWeatherMapSelector onMapSelected={this.handleSelectedMap} isLoadingTemplate={this.isLoadingTemplate}></EmojiWeatherMapSelector>
             </div>
             <div className="col-lg-8 content">
               {content}
