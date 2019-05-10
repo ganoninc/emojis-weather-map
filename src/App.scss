@@ -1,4 +1,14 @@
-.container {
-  padding-top: 25px;
-  padding-bottom: 25px;
+.App__body {
+  height: 100vh;
+}
+
+.App__settings {
+  text-align: right;
+  padding: 0;
+  padding-right: 25px;
+}
+
+.App__mapView {
+  padding: 0;
+  padding-left: 25px;
 }

@@ -49,23 +49,23 @@ class App extends Component {
 
   render() {
     const { emojiWeatherMapTemplate, isLoadingTemplate, loadingActionsCount } = this.state;
-    let content;
+    let mapView;
     
     if (isLoadingTemplate || !emojiWeatherMapTemplate) {
-      content = <p>Loading map...</p>;
+      mapView = <p>Loading map...</p>;
     } else {
-      content = <EmojiWeatherMap template={emojiWeatherMapTemplate} onLoading={this.handleLoadingActionStart} onLoaded={this.handleLoadingActionEnd}></EmojiWeatherMap>;
+      mapView = <EmojiWeatherMap template={emojiWeatherMapTemplate} onLoading={this.handleLoadingActionStart} onLoaded={this.handleLoadingActionEnd}></EmojiWeatherMap>;
     }
     return (
       <div className="App">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-4 title">
+          <div className="row align-items-center App__body">
+            <div className="col-lg-6 App__settings">
               <h1> Emoji Weather Map {loadingActionsCount > 0 ? <img alt="Loading" src={LoadingImage} />  : ""}</h1>
               <EmojiWeatherMapSelector onMapSelected={this.handleSelectedMap} isLoadingTemplate={this.isLoadingTemplate}></EmojiWeatherMapSelector>
             </div>
-            <div className="col-lg-8">
-              {content}
+            <div className="col-lg-6 App__mapView">
+              {mapView}
             </div>
           </div>
         </div>
