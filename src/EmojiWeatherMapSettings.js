@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import EmojiWeatherMapSelector from './EmojiWeatherMapSelector';
 import LoadingImage from "./EmojiWeatherMapEmojiLoading.svg";
+import './EmojiWeatherMapSettings.scss';
 
 class EmojiWeatherMapSettings extends Component {
 
@@ -9,8 +10,10 @@ class EmojiWeatherMapSettings extends Component {
         
         return (
             <>
-                <h1> Emoji Weather Map {displayLoadingIcon ? <img alt="Loading" src={LoadingImage} />  : ""}</h1>
-                <EmojiWeatherMapSelector onMapSelected={onMapSelected} isLoadingTemplate={isLoadingTemplate}></EmojiWeatherMapSelector>
+                <h1 className="EmojiWeatherMapSettings__AppTitle">{displayLoadingIcon ? <img alt="Loading" src={LoadingImage} />  : ""} Emoji Weather Map</h1>
+                <div className="EmojiWeatherMapSettings__SettingsList">
+                    <EmojiWeatherMapSelector onMapSelected={onMapSelected} isLoadingTemplate={isLoadingTemplate}></EmojiWeatherMapSelector>
+                </div>
             </>
         );
     }

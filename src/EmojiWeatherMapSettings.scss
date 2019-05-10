@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/bootstrap";
+
+.EmojiWeatherMapSettings__AppTitle {
+    margin-bottom: 25pt;
+
+    img {
+        width: 25pt;
+        height: 25pt;
+    }
+}
+
+.EmojiWeatherMapSettings__SettingsList {
+    float: right;
+    width: 300px;
+}
