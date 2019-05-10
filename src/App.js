@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import EmojiWeatherMapSelector from './EmojiWeatherMapSelector';
+import EmojiWeatherMapSettings from './EmojiWeatherMapSettings';
 import EmojiWeatherMap from './EmojiWeatherMap';
-import LoadingImage from "./EmojiWeatherMapEmojiLoading.svg";
 import './App.scss';
 
 class App extends Component {
@@ -61,8 +60,7 @@ class App extends Component {
         <div className="container">
           <div className="row align-items-center App__body">
             <div className="col-lg-6 App__settings">
-              <h1> Emoji Weather Map {loadingActionsCount > 0 ? <img alt="Loading" src={LoadingImage} />  : ""}</h1>
-              <EmojiWeatherMapSelector onMapSelected={this.handleSelectedMap} isLoadingTemplate={this.isLoadingTemplate}></EmojiWeatherMapSelector>
+              <EmojiWeatherMapSettings displayLoadingIcon={loadingActionsCount > 0} onMapSelected={this.handleSelectedMap} isLoadingTemplate={this.isLoadingTemplate}></EmojiWeatherMapSettings>
             </div>
             <div className="col-lg-6 App__mapView">
               {mapView}
