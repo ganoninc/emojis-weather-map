@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EmojiWeatherMapSelector from './EmojiWeatherMapSelector';
 import EmojiWeatherMap from './EmojiWeatherMap';
 import LoadingImage from "./EmojiWeatherMapEmojiLoading.svg";
-import './App.css';
+import './App.scss';
 
 class App extends Component {
 
@@ -64,7 +64,7 @@ class App extends Component {
               <h1> Emoji Weather Map {loadingActionsCount > 0 ? <img alt="Loading" src={LoadingImage} />  : ""}</h1>
               <EmojiWeatherMapSelector onMapSelected={this.handleSelectedMap} isLoadingTemplate={this.isLoadingTemplate}></EmojiWeatherMapSelector>
             </div>
-            <div className="col-lg-8 content">
+            <div className="col-lg-8">
               {content}
             </div>
           </div>

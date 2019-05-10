@@ -6,7 +6,7 @@ class EmojiWeatherMapRow extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="emojiWeatherMap__row">
       {
         this.props.row.items.map( (item, index) => {
           let returnedItem = null;

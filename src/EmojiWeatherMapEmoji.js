@@ -149,13 +149,13 @@ class EmojiWeatherMapEmoji extends Component {
 
     if (isLoading){
       return (
-        <span className="emoji" role="img" aria-label="Loading">
+        <span className="emojiWeatherMap__emojiLoading" role="img" aria-label="Loading">
           <img className="emoji-loading" alt="emoji" src={LoadingImage} />
         </span>
       );
     } else {
       return (
-        <span className="emoji" role="img" aria-label={currentWeatherLabel}>
+        <span className="emojiWeatherMap__emoji" role="img" aria-label={currentWeatherLabel}>
           {currentWeatherIcon}
         </span>
       );

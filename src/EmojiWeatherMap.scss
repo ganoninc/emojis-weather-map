@@ -1,0 +1,29 @@
+$emoji-size: 40pt;
+$offset-space-size: 8pt;
+
+.emojiWeatherMap {
+    font-family: Arial;
+    margin: auto;
+    text-align: left;
+    white-space: nowrap;
+    font-size: $emoji-size;
+    line-height: $emoji-size;
+
+        &__emojiLoading{
+            display: inline-block;
+            width: $emoji-size;
+            height: $emoji-size;
+        }
+
+        &__emoji {
+            display: inline-block;
+            width: $emoji-size;
+            height: $emoji-size;
+        }
+
+        &__offsetSpace {
+            display: inline-block;
+            width: $offset-space-size;
+            height: $emoji-size;
+        }
+}
