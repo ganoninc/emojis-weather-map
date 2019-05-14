@@ -13,6 +13,12 @@ $offset-space-size: 8pt;
             display: inline-block;
             width: $emoji-size;
             height: $emoji-size;
+
+            img {
+                display: inline-block;
+                width: $emoji-size;
+                height: $emoji-size;
+            }
         }
 
         &__emoji {
