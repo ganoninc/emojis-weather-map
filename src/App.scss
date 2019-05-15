@@ -1,14 +1,12 @@
-.App__body {
-  height: 100vh;
-}
+@import "~bootstrap/scss/bootstrap";
 
-.App__settings {
-  text-align: right;
-  padding: 0;
-  padding-right: 25px;
-}
+.App {
+  
+  &__body {
+    height: 100vh;
+  }
+  
+  &__mapView {
 
-.App__mapView {
-  padding: 0;
-  padding-left: 25px;
+  }
 }

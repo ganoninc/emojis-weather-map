@@ -10,9 +10,11 @@ class EmojiWeatherMapSettings extends Component {
         
         return (
             <>
-                <h1 className="EmojiWeatherMapSettings__AppTitle">{displayLoadingIcon ? <img alt="Loading" src={LoadingImage} />  : ""} Emoji Weather Map</h1>
-                <div className="EmojiWeatherMapSettings__SettingsList">
-                    <EmojiWeatherMapSelector onMapSelected={onMapSelected} isLoadingTemplate={isLoadingTemplate}></EmojiWeatherMapSelector>
+                <div className="EmojiWeatherMapSettings">
+                    <h1 className="EmojiWeatherMapSettings__AppTitle">{displayLoadingIcon ? <img alt="Loading" src={LoadingImage} />  : ""} Emoji Weather Map</h1>
+                    <div className="EmojiWeatherMapSettings__SettingsList">
+                        <EmojiWeatherMapSelector onMapSelected={onMapSelected} isLoadingTemplate={isLoadingTemplate}></EmojiWeatherMapSelector>
+                    </div>
                 </div>
             </>
         );

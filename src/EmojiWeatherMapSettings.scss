@@ -1,15 +1,38 @@
 @import "~bootstrap/scss/bootstrap";
 
-.EmojiWeatherMapSettings__AppTitle {
-    margin-bottom: 25pt;
+.EmojiWeatherMapSettings {
+    @include clearfix;
 
-    img {
-        width: 25pt;
-        height: 25pt;
+    &__AppTitle {
+        text-align: center;
+
+        @include media-breakpoint-up(lg) {
+            text-align: right;
+        }
+    
+        img {
+            width: 25pt;
+            height: 25pt;
+        }
+    }
+    
+    &__SettingsList {
+        @include media-breakpoint-up(xl) {
+            float: right;
+            width: 300px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            float: right;
+            width: 300px;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: 400px;
+            margin: auto;
+        }
+        padding-top: 25pt;
+
     }
 }
 
-.EmojiWeatherMapSettings__SettingsList {
-    float: right;
-    width: 300px;
-}

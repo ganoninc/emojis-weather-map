@@ -1,5 +1,9 @@
-$emoji-size: 40pt;
-$offset-space-size: 8pt;
+@import "~bootstrap/scss/bootstrap";
+
+$emoji-size: 45pt;
+$emoji-size-xs: 25pt;
+$offset-space-size: 9pt;
+$offset-space-size-xs: 5pt;
 
 .emojiWeatherMap {
     font-family: Arial;
@@ -8,28 +12,57 @@ $offset-space-size: 8pt;
     white-space: nowrap;
     font-size: $emoji-size;
     line-height: $emoji-size;
+    padding-top: 25px;
+    padding-bottom: 25px;
 
-        &__emojiLoading{
+    @include media-breakpoint-down(xs) {
+        width: 300px;
+        margin: auto;
+        font-size: $emoji-size-xs;
+        line-height: $emoji-size-xs;
+    }
+
+    &__emojiLoading{
+        display: inline-block;
+        width: $emoji-size;
+        height: $emoji-size;
+
+        @include media-breakpoint-down(xs) {
+            width: $emoji-size-xs;
+            height: $emoji-size-xs;
+        }
+
+        img {
             display: inline-block;
             width: $emoji-size;
             height: $emoji-size;
 
-            img {
-                display: inline-block;
-                width: $emoji-size;
-                height: $emoji-size;
+            @include media-breakpoint-down(xs) {
+                width: $emoji-size-xs;
+                height: $emoji-size-xs;
             }
         }
+    }
 
-        &__emoji {
-            display: inline-block;
-            width: $emoji-size;
-            height: $emoji-size;
-        }
+    &__emoji {
+        display: inline-block;
+        width: $emoji-size;
+        height: $emoji-size;
 
-        &__offsetSpace {
-            display: inline-block;
-            width: $offset-space-size;
-            height: $emoji-size;
+        @include media-breakpoint-down(xs) {
+            width: $emoji-size-xs;
+            height: $emoji-size-xs;
         }
+    }
+
+    &__offsetSpace {
+        display: inline-block;
+        width: $offset-space-size;
+        height: $emoji-size;
+
+        @include media-breakpoint-down(xs) {
+            width: $offset-space-size-xs;
+            height: $emoji-size-xs;
+        }
+    }
 }
