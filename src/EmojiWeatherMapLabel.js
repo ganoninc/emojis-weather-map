@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './EmojiWeatherMapLabel.scss';
 
 class EmojiWeatherMapLabel extends Component {
 
     render() {
         return (
-            <h2>{this.props.icon} {this.props.name}</h2>
+            <h2 className="EmojiWeatherMapLabel" >{this.props.icon} {this.props.name}</h2>
         );
     }
 }

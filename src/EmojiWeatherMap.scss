@@ -14,6 +14,7 @@ $offset-space-size-xs: 5pt;
     line-height: $emoji-size;
     padding-top: 25px;
     padding-bottom: 25px;
+    width: 510px;
 
     @include media-breakpoint-down(xs) {
         width: 300px;

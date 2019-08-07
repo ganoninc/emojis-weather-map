@@ -30,9 +30,9 @@ class EmojiWeatherMapSelector extends Component {
         
         return (
             <>
-                <div class="form-group row">
-                    <label for="mapSelector" className="col-sm-3 col-form-label">Country</label>
-                    <div class="col-sm-9">
+                <div className="form-group row">
+                    <label htmlFor="mapSelector" className="col-sm-3 col-form-label">Country</label>
+                    <div className="col-sm-9">
                         <select disabled={selectorDisabled} value={this.state.value} onChange={this.handleChange} className="form-control" id="mapSelector">
                             <option value="./templates/france.json">France</option>
                             {/* <option value="./templates/francetest.json">Test</option> */}

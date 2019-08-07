@@ -7,7 +7,7 @@
         text-align: center;
 
         @include media-breakpoint-up(lg) {
-            text-align: right;
+            text-align: center;
         }
     
         img {
@@ -18,12 +18,12 @@
     
     &__SettingsList {
         @include media-breakpoint-up(xl) {
-            float: right;
+            float: center;
             width: 300px;
         }
 
         @include media-breakpoint-up(lg) {
-            float: right;
+            float: center;
             width: 300px;
         }
 
