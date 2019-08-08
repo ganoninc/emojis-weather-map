@@ -1,23 +1,106 @@
 @import "~bootstrap/scss/bootstrap";
 
-$emoji-size: 45pt;
-$emoji-size-xs: 25pt;
-$offset-space-size: 9pt;
-$offset-space-size-xs: 5pt;
+/* Extra large - ≥1200px */ 
+$map-size-xl: 1090px;
+$emoji-size-xl: 80pt;
+$offset-space-size-xl-width: 15pt;
+$offset-space-size-xl-height: $emoji-size-xl;
+
+/* Large - ≥992px */ 
+$map-size-lg: 725px;
+$emoji-size-lg: 52pt;
+$offset-space-size-lg-width: 10pt;
+$offset-space-size-lg-height: $emoji-size-lg;
+
+/* Medium - ≥768px */ 
+$map-size-md: 670px;
+$emoji-size-md: 48pt;
+$offset-space-size-md-width: 9pt;
+$offset-space-size-md-height: $emoji-size-md;
+
+/* Small - ≥576px */ 
+$map-size-sm: 525px;
+$emoji-size-sm: 37pt;
+$offset-space-size-sm-width: 7pt;
+$offset-space-size-sm-height: $emoji-size-sm;
+
+/* Small - ≥576px */ 
+$map-size-xs: 270px;
+$emoji-size-xs: 17pt;
+$offset-space-size-xs-width: 3.5pt;
+$offset-space-size-xs-height: $emoji-size-xs;
+
+@mixin responsive-emoji-size ()
+{
+    @include media-breakpoint-down(xl) {
+        width: $emoji-size-xl;
+        height: $emoji-size-xl;
+    }
+
+    @include media-breakpoint-down(lg) {
+        width: $emoji-size-lg;
+        height: $emoji-size-lg;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: $emoji-size-md;
+        height: $emoji-size-md;
+    }
+
+    @include media-breakpoint-down(sm) {
+        width: $emoji-size-sm;
+        height: $emoji-size-sm;
+    }
+
+    @include media-breakpoint-down(xs) {
+        width: $emoji-size-xs;
+        height: $emoji-size-xs;
+    }
+}
 
 .emojiWeatherMap {
     font-family: Arial;
     margin: auto;
     text-align: left;
     white-space: nowrap;
-    font-size: $emoji-size;
-    line-height: $emoji-size;
     padding-top: 25px;
     padding-bottom: 25px;
-    width: 510px;
+
+    @include media-breakpoint-down(xl) {
+        width: $map-size-xl;
+        height: $map-size-xl;
+        margin: auto;
+        font-size: $emoji-size-xl;
+        line-height: $emoji-size-xl;
+    }
+
+    @include media-breakpoint-down(lg) {
+        width: $map-size-lg;
+        height: $map-size-lg;
+        margin: auto;
+        font-size: $emoji-size-lg;
+        line-height: $emoji-size-lg;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: $map-size-md;
+        height: $map-size-md;
+        margin: auto;
+        font-size: $emoji-size-md;
+        line-height: $emoji-size-md;
+    }
+
+    @include media-breakpoint-down(sm) {
+        width: $map-size-sm;
+        height: $map-size-sm;
+        margin: auto;
+        font-size: $emoji-size-sm;
+        line-height: $emoji-size-sm;
+    }
 
     @include media-breakpoint-down(xs) {
-        width: 300px;
+        width: $map-size-xs;
+        height: $map-size-xs;
         margin: auto;
         font-size: $emoji-size-xs;
         line-height: $emoji-size-xs;
@@ -25,45 +108,45 @@ $offset-space-size-xs: 5pt;
 
     &__emojiLoading{
         display: inline-block;
-        width: $emoji-size;
-        height: $emoji-size;
-
-        @include media-breakpoint-down(xs) {
-            width: $emoji-size-xs;
-            height: $emoji-size-xs;
-        }
+        @include responsive-emoji-size();
 
         img {
             display: inline-block;
-            width: $emoji-size;
-            height: $emoji-size;
-
-            @include media-breakpoint-down(xs) {
-                width: $emoji-size-xs;
-                height: $emoji-size-xs;
-            }
+            @include responsive-emoji-size();
         }
     }
 
     &__emoji {
         display: inline-block;
-        width: $emoji-size;
-        height: $emoji-size;
-
-        @include media-breakpoint-down(xs) {
-            width: $emoji-size-xs;
-            height: $emoji-size-xs;
-        }
+        @include responsive-emoji-size();
     }
 
     &__offsetSpace {
         display: inline-block;
-        width: $offset-space-size;
-        height: $emoji-size;
+
+        @include media-breakpoint-down(xl) {
+            width: $offset-space-size-xl-width;
+            height: $offset-space-size-xl-height;
+        }
+
+        @include media-breakpoint-down(lg) {
+            width: $offset-space-size-lg-width;
+            height: $offset-space-size-lg-height;
+        }
+
+        @include media-breakpoint-down(md) {
+            width: $offset-space-size-md-width;
+            height: $offset-space-size-md-height;
+        }
+
+        @include media-breakpoint-down(sm) {
+            width: $offset-space-size-sm-width;
+            height: $offset-space-size-sm-height;
+        }
 
         @include media-breakpoint-down(xs) {
-            width: $offset-space-size-xs;
-            height: $emoji-size-xs;
+            width: $offset-space-size-xs-width;
+            height: $offset-space-size-xs-height;
         }
     }
 }

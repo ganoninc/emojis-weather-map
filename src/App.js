@@ -59,10 +59,10 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <div className="row align-items-center App__body">
-            <div className="col-lg-12 App__settings">
+            <div className="col-12 App__settings">
               <EmojiWeatherMapSettings displayLoadingIcon={loadingActionsCount > 0} onMapSelected={this.handleSelectedMap} isLoadingTemplate={this.isLoadingTemplate}></EmojiWeatherMapSettings>
             </div>
-            <div className="col-lg-12 App__mapView">
+            <div className="col-12 App__mapView">
               {mapView}
             </div>
           </div>
