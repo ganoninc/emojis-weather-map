@@ -65,6 +65,10 @@ class App extends Component {
             <div className="col-12 App__mapView">
               {mapView}
             </div>
+            <div className="col-12">
+              <hr />
+              Emoji Weather Map - A simple React App made by Romain Giovanetti (<a href="https://giovanetti.fr/" rel="noopener noreferrer" target="_blank">giovanetti.fr</a>).
+            </div>
           </div>
         </div>
       </div>
