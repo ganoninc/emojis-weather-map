@@ -29,6 +29,6 @@
   ],
   "homepage": "https://ganoninc.github.io/emojis-weather-map",
   "devDependencies": {
-    "gh-pages": "^2.1.0"
+    "gh-pages": "^2.0.1"
   }
 }
