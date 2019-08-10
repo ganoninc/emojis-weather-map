@@ -30,13 +30,13 @@ class EmojiWeatherMapEmoji extends Component {
         currentWeatherIcon = '☁️';
         break;
       case '03d':
-        currentWeatherIcon = '️️☁️';
+        currentWeatherIcon = '⛅';
         break;
       case '03n':
         currentWeatherIcon = '☁️';
         break;
       case '04d':
-        currentWeatherIcon = '️️☁️';
+        currentWeatherIcon = '☁️';
         break;
       case '04n':
         currentWeatherIcon = '☁️';
