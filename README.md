@@ -7,7 +7,6 @@ You can try the app there: https://ganoninc.github.io/emojis-weather-map
 
 ## TODO
 
-* Fix the rendering on Safari
 * Add export to twitter button
 * Add support for platforms without native emoji support
 * Add night mode
