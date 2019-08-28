@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/emojis-weather-map/static/css/main.891455e4.chunk.css",
+    "main.js": "/emojis-weather-map/static/js/main.0441e634.chunk.js",
+    "main.js.map": "/emojis-weather-map/static/js/main.0441e634.chunk.js.map",
+    "runtime~main.js": "/emojis-weather-map/static/js/runtime~main.ed347cea.js",
+    "runtime~main.js.map": "/emojis-weather-map/static/js/runtime~main.ed347cea.js.map",
+    "static/css/2.0f7a873c.chunk.css": "/emojis-weather-map/static/css/2.0f7a873c.chunk.css",
+    "static/js/2.4bfe5d39.chunk.js": "/emojis-weather-map/static/js/2.4bfe5d39.chunk.js",
+    "static/js/2.4bfe5d39.chunk.js.map": "/emojis-weather-map/static/js/2.4bfe5d39.chunk.js.map",
+    "index.html": "/emojis-weather-map/index.html",
+    "precache-manifest.5edac1d4cc6d0da7b48ceefdf3186317.js": "/emojis-weather-map/precache-manifest.5edac1d4cc6d0da7b48ceefdf3186317.js",
+    "service-worker.js": "/emojis-weather-map/service-worker.js",
+    "static/css/2.0f7a873c.chunk.css.map": "/emojis-weather-map/static/css/2.0f7a873c.chunk.css.map",
+    "static/css/main.891455e4.chunk.css.map": "/emojis-weather-map/static/css/main.891455e4.chunk.css.map",
+    "static/media/EmojiWeatherMapEmojiLoading.svg": "/emojis-weather-map/static/media/EmojiWeatherMapEmojiLoading.137847d1.svg"
+  }
+}
