@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ApiBaseUrlContext } from "./Context/ApiBaseUrlContext";
 import EmojiWeatherMapSettings from "./EmojiWeatherMapSettings";
 import EmojiWeatherMap from "./EmojiWeatherMap";
-import "./App.scss";
+import "./styles/App.scss";
 
 class App extends Component {
   constructor(props) {

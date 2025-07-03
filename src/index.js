@@ -1,7 +1,7 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import "./index.scss";
+import "./styles/index.scss";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
