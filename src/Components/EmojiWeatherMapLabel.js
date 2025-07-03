@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./styles/EmojiWeatherMapLabel.scss";
+import "../styles/EmojiWeatherMapLabel.scss";
 
 class EmojiWeatherMapLabel extends Component {
   render() {

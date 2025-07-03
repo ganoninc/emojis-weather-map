@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ApiBaseUrlContext } from "./Context/ApiBaseUrlContext";
-import EmojiWeatherMapSettings from "./EmojiWeatherMapSettings";
-import EmojiWeatherMap from "./EmojiWeatherMap";
+import EmojiWeatherMapSettings from "./Components/EmojiWeatherMapSettings";
+import EmojiWeatherMap from "./Components/EmojiWeatherMap";
 import "./styles/App.scss";
 
 class App extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { ApiBaseUrlContext } from "./Context/ApiBaseUrlContext";
-import LoadingImage from "./EmojiWeatherMapEmojiLoading.svg";
+import { ApiBaseUrlContext } from "../Context/ApiBaseUrlContext";
+import LoadingImage from "../EmojiWeatherMapEmojiLoading.svg";
 
 class EmojiWeatherMapEmoji extends Component {
   static contextType = ApiBaseUrlContext;
@@ -133,8 +133,6 @@ class EmojiWeatherMapEmoji extends Component {
       this.props.geographicCoordinates.latitude +
       "&longitude=" +
       this.props.geographicCoordinates.longitude;
-
-    console.log(this.dataProviderEndpoint);
 
     this.setState(() => {
       this.props.onLoading();
