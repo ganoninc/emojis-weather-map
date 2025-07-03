@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ApiBaseUrlContext } from "../Context/ApiBaseUrlContext";
-import LoadingImage from "../EmojiWeatherMapEmojiLoading.svg";
+import LoadingImage from "../assets/EmojiWeatherMapEmojiLoading.svg";
 
 class EmojiWeatherMapEmoji extends Component {
   static contextType = ApiBaseUrlContext;

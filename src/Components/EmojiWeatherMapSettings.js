@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EmojiWeatherMapSelector from "./EmojiWeatherMapSelector";
-import LoadingImage from "../EmojiWeatherMapEmojiLoading.svg";
+import LoadingImage from "../assets/EmojiWeatherMapEmojiLoading.svg";
 import "../styles/EmojiWeatherMapSettings.scss";
 
 class EmojiWeatherMapSettings extends Component {
