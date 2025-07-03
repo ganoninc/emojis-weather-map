@@ -1,10 +1,16 @@
 @import "~bootstrap/scss/bootstrap";
 
 .App {
-  
   &__body {
     padding: 25px;
   }
-  
-  &__mapView {}
+
+  // &__mapView {
+  // }
+
+  &__footer {
+    // margin-top: 3em;
+    text-align: center;
+    font-size: 0.9em;
+  }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EmojiWeatherMapRow from "./EmojiWeatherMapRow";
-import EmojiWeatherMapLabel from "./EmojiWeatherMapLabel";
+// import EmojiWeatherMapLabel from "./EmojiWeatherMapLabel";
 import "../styles/EmojiWeatherMap.scss";
 
 class EmojiWeatherMap extends Component {
@@ -19,10 +19,10 @@ class EmojiWeatherMap extends Component {
             );
           })}
         </div>
-        <EmojiWeatherMapLabel
+        {/* <EmojiWeatherMapLabel
           name={this.props.template.name}
           icon={this.props.template.icon}
-        ></EmojiWeatherMapLabel>
+        ></EmojiWeatherMapLabel> */}
       </>
     );
   }

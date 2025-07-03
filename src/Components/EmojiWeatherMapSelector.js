@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/EmojiWeatherMapSelector.scss";
 
 class EmojiWeatherMapSelector extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class EmojiWeatherMapSelector extends Component {
       <div className="EmojiWeatherMapSelector">
         <div className="form-group row">
           <label htmlFor="mapSelector" className="col-12 col-form-label">
-            Selected country:
+            Country
           </label>
           <div className="col-12">
             <select
