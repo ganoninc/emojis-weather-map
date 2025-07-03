@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import EmojiWeatherMapSettings from './EmojiWeatherMapSettings';
-import EmojiWeatherMap from './EmojiWeatherMap';
-import './App.scss';
+import React, { Component } from "react";
+import { ApiBaseUrlContext } from "./Context/ApiBaseUrlContext";
+import EmojiWeatherMapSettings from "./EmojiWeatherMapSettings";
+import EmojiWeatherMap from "./EmojiWeatherMap";
+import "./App.scss";
 
 class App extends Component {
-
   constructor(props) {
     super(props);
 
@@ -15,63 +15,86 @@ class App extends Component {
     this.state = {
       emojiWeatherMapTemplate: null,
       isLoadingTemplate: false,
-      loadingActionsCount: 0
+      loadingActionsCount: 0,
     };
+
+    this.apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   }
 
   handleLoadingActionStart() {
-    this.setState(state => { 
+    this.setState((state) => {
       return {
-        loadingActionsCount: state.loadingActionsCount + 1
+        loadingActionsCount: state.loadingActionsCount + 1,
       };
     });
   }
 
   handleLoadingActionEnd() {
-    this.setState(state => {
+    this.setState((state) => {
       return {
-        loadingActionsCount: state.loadingActionsCount - 1
+        loadingActionsCount: state.loadingActionsCount - 1,
       };
-    });    
+    });
   }
 
   handleSelectedMap(mapTemplateURL) {
     this.setState({ isLoadingTemplate: true });
 
     fetch(mapTemplateURL)
-      .then(response => response.json())
-      .then(data => this.setState({ emojiWeatherMapTemplate: data, isLoadingTemplate: false }));
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          emojiWeatherMapTemplate: data,
+          isLoadingTemplate: false,
+        });
+      });
   }
 
-  // componentDidMount() {
-  // }
-
   render() {
-    const { emojiWeatherMapTemplate, isLoadingTemplate, loadingActionsCount } = this.state;
+    const { emojiWeatherMapTemplate, isLoadingTemplate, loadingActionsCount } =
+      this.state;
     let mapView;
-    
+
     if (isLoadingTemplate || !emojiWeatherMapTemplate) {
       mapView = <p>Loading map...</p>;
     } else {
-      mapView = <EmojiWeatherMap template={emojiWeatherMapTemplate} onLoading={this.handleLoadingActionStart} onLoaded={this.handleLoadingActionEnd}></EmojiWeatherMap>;
+      mapView = (
+        <EmojiWeatherMap
+          template={emojiWeatherMapTemplate}
+          onLoading={this.handleLoadingActionStart}
+          onLoaded={this.handleLoadingActionEnd}
+        ></EmojiWeatherMap>
+      );
     }
     return (
-      <div className="App">
-        <div className="container">
-          <div className="row align-items-center App__body">
-            <div className="col-12 App__settings">
-              <EmojiWeatherMapSettings displayLoadingIcon={loadingActionsCount > 0} onMapSelected={this.handleSelectedMap} isLoadingTemplate={this.isLoadingTemplate}></EmojiWeatherMapSettings>
-            </div>
-            <div className="col-12 App__mapView">
-              {mapView}
-            </div>
-            <div className="col-12">
-              <hr />
-              Emoji Weather Map - A simple React App made by Romain Giovanetti (<a href="https://giovanetti.fr/" rel="noopener noreferrer" target="_blank">giovanetti.fr</a>).
+      <ApiBaseUrlContext.Provider value={this.apiBaseUrl}>
+        <div className="App">
+          <div className="container">
+            <div className="row align-items-center App__body">
+              <div className="col-12 App__settings">
+                <EmojiWeatherMapSettings
+                  displayLoadingIcon={loadingActionsCount > 0}
+                  onMapSelected={this.handleSelectedMap}
+                  isLoadingTemplate={isLoadingTemplate}
+                ></EmojiWeatherMapSettings>
+              </div>
+              <div className="col-12 App__mapView">{mapView}</div>
+              <div className="col-12">
+                <hr />
+                Emoji Weather Map - A simple React app made by{" "}
+                <a
+                  href="https://www.giovanetti.fr/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Romain Giovanetti
+                </a>
+                .
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </ApiBaseUrlContext.Provider>
     );
   }
 }

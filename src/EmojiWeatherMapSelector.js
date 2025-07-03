@@ -1,47 +1,59 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class EmojiWeatherMapSelector extends Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props);
-        this.state = { 
-            value: './templates/france.json'
-         };
+    this.templateBaseUrl = process.env.PUBLIC_URL + "/templates/";
 
-        this.handleChange = this.handleChange.bind(this);
-    }
+    this.state = {
+      selectedTemplate: "france.json",
+    };
 
-    handleChange(event) {
-        let selectedMapTemplateURL = event.target.value;
-        this.setState((state, props) => {
-            props.onMapSelected(selectedMapTemplateURL);
-            return { value: selectedMapTemplateURL };
-        });
-    }
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-    componentDidMount() {
-        const { value } = this.state;
-        this.props.onMapSelected(value);
-    }
+  handleChange(event) {
+    const selectedTemplate = event.target.value;
+    const selectedMapTemplateURL = this.templateBaseUrl + selectedTemplate;
 
-    render() {
-        const { isLoadingTemplate } = this.props;
-        let selectorDisabled = isLoadingTemplate;
-        
-        return (
-            <>
-                <div className="form-group row">
-                    <label htmlFor="mapSelector" className="col-3 col-form-label">Country</label>
-                    <div className="col-9">
-                        <select disabled={selectorDisabled} value={this.state.value} onChange={this.handleChange} className="form-control" id="mapSelector">
-                            <option value="./templates/france.json">France</option>
-                            {/* <option value="./templates/francetest.json">Test</option> */}
-                        </select>
-                    </div>
-                </div>
-            </>
-        );
-    }
+    this.setState((_) => {
+      this.props.onMapSelected(selectedMapTemplateURL);
+      return { selectedTemplate };
+    });
+  }
+
+  componentDidMount() {
+    const { selectedTemplate } = this.state;
+    const selectedMapTemplateURL = this.templateBaseUrl + selectedTemplate;
+    this.props.onMapSelected(selectedMapTemplateURL);
+  }
+
+  render() {
+    const { isLoadingTemplate } = this.props;
+
+    return (
+      <div className="EmojiWeatherMapSelector">
+        <div className="form-group row">
+          <label htmlFor="mapSelector" className="col-12 col-form-label">
+            Selected country:
+          </label>
+          <div className="col-12">
+            <select
+              disabled={isLoadingTemplate}
+              value={this.state.selectedTemplate}
+              onChange={this.handleChange}
+              className="form-control"
+              id="mapSelector"
+              name="mapSelector"
+            >
+              <option value="france.json">🇫🇷 France</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default EmojiWeatherMapSelector;
