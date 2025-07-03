@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/emojis-weather-map/precache-manifest.c6bff9f4bc14df03a8a767101a066f81.js"
+  "/emojis-weather-map/precache-manifest.9b1741bf4b0c6b78ef16004db20b3c54.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/emojis-weather-map/static/css/main.f239dbe5.chunk.css",
-    "main.js": "/emojis-weather-map/static/js/main.032279bb.chunk.js",
-    "main.js.map": "/emojis-weather-map/static/js/main.032279bb.chunk.js.map",
+    "main.js": "/emojis-weather-map/static/js/main.cf769bb4.chunk.js",
+    "main.js.map": "/emojis-weather-map/static/js/main.cf769bb4.chunk.js.map",
     "runtime-main.js": "/emojis-weather-map/static/js/runtime-main.4df3dba6.js",
     "runtime-main.js.map": "/emojis-weather-map/static/js/runtime-main.4df3dba6.js.map",
     "static/css/2.4e15b5ff.chunk.css": "/emojis-weather-map/static/css/2.4e15b5ff.chunk.css",
     "static/js/2.f0a83025.chunk.js": "/emojis-weather-map/static/js/2.f0a83025.chunk.js",
     "static/js/2.f0a83025.chunk.js.map": "/emojis-weather-map/static/js/2.f0a83025.chunk.js.map",
     "index.html": "/emojis-weather-map/index.html",
-    "precache-manifest.c6bff9f4bc14df03a8a767101a066f81.js": "/emojis-weather-map/precache-manifest.c6bff9f4bc14df03a8a767101a066f81.js",
+    "precache-manifest.9b1741bf4b0c6b78ef16004db20b3c54.js": "/emojis-weather-map/precache-manifest.9b1741bf4b0c6b78ef16004db20b3c54.js",
     "service-worker.js": "/emojis-weather-map/service-worker.js",
     "static/css/2.4e15b5ff.chunk.css.map": "/emojis-weather-map/static/css/2.4e15b5ff.chunk.css.map",
     "static/css/main.f239dbe5.chunk.css.map": "/emojis-weather-map/static/css/main.f239dbe5.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.4e15b5ff.chunk.css",
     "static/js/2.f0a83025.chunk.js",
     "static/css/main.f239dbe5.chunk.css",
-    "static/js/main.032279bb.chunk.js"
+    "static/js/main.cf769bb4.chunk.js"
   ]
 }

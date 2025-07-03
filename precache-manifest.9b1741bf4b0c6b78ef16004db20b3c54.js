@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bb4ee6725fec5b1e0394f77aa82cdf17",
+    "revision": "66c8be20ae3cf5d0c3eeefa43d4e6d0f",
     "url": "/emojis-weather-map/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/emojis-weather-map/static/css/2.4e15b5ff.chunk.css"
   },
   {
-    "revision": "046c3170a89b597e502d",
+    "revision": "1001ad8c5a043d91c82f",
     "url": "/emojis-weather-map/static/css/main.f239dbe5.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/emojis-weather-map/static/js/2.f0a83025.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "046c3170a89b597e502d",
-    "url": "/emojis-weather-map/static/js/main.032279bb.chunk.js"
+    "revision": "1001ad8c5a043d91c82f",
+    "url": "/emojis-weather-map/static/js/main.cf769bb4.chunk.js"
   },
   {
     "revision": "44c988e8da4c02af1ac2",
