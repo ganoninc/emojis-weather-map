@@ -1,6 +1,77 @@
 @import "~bootstrap/scss/bootstrap";
 
+$night-sky-top: #070b1f;
+$night-sky-bottom: #1d2650;
+$night-text: #e3e7f7;
+$night-text-muted: #9aa3c7;
+$night-link: #a9bcff;
+$theme-transition: 1s ease;
+
 .App {
+  min-height: 100vh;
+  transition: color $theme-transition;
+
+  // Night sky, faded in over the white page when it's night in the country.
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity $theme-transition;
+    background:
+      radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.9), transparent),
+      radial-gradient(1px 1px at 27% 72%, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1.5px 1.5px at 41% 9%, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 58% 33%, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1.5px 1.5px at 73% 14%, rgba(255, 255, 255, 0.9), transparent),
+      radial-gradient(1px 1px at 86% 61%, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 93% 27%, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1px 1px at 6% 54%, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1.5px 1.5px at 64% 86%, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 19% 91%, rgba(255, 255, 255, 0.5), transparent),
+      linear-gradient($night-sky-top, $night-sky-bottom);
+  }
+
+  &--night {
+    color: $night-text;
+
+    &::before {
+      opacity: 1;
+    }
+
+    a {
+      color: $night-link;
+    }
+
+    hr {
+      border-top-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .form-control {
+      color: $night-text;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($night-link, 0.35);
+      }
+
+      option {
+        color: $night-text;
+        background-color: $night-sky-bottom;
+      }
+    }
+
+    .col-form-label {
+      color: $night-text-muted;
+    }
+  }
+
   &__body {
     padding: 25px;
   }

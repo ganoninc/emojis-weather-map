@@ -11,11 +11,13 @@ class App extends Component {
     this.handleLoadingActionStart = this.handleLoadingActionStart.bind(this);
     this.handleLoadingActionEnd = this.handleLoadingActionEnd.bind(this);
     this.handleSelectedMap = this.handleSelectedMap.bind(this);
+    this.handleWeatherLoaded = this.handleWeatherLoaded.bind(this);
 
     this.state = {
       emojiWeatherMapTemplate: null,
       isLoadingTemplate: false,
       loadingActionsCount: 0,
+      isNight: false,
     };
 
     this.apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -37,6 +39,17 @@ class App extends Component {
     });
   }
 
+  handleWeatherLoaded(weathers) {
+    // Night theme when most of the country is in the dark. Keep the current
+    // theme if the weather couldn't be loaded.
+    const known = weathers.filter((weather) => weather.isDay !== undefined);
+    if (known.length === 0) {
+      return;
+    }
+    const nightCount = known.filter((weather) => !weather.isDay).length;
+    this.setState({ isNight: nightCount > known.length / 2 });
+  }
+
   handleSelectedMap(mapTemplateURL) {
     this.setState({ isLoadingTemplate: true });
 
@@ -51,8 +64,12 @@ class App extends Component {
   }
 
   render() {
-    const { emojiWeatherMapTemplate, isLoadingTemplate, loadingActionsCount } =
-      this.state;
+    const {
+      emojiWeatherMapTemplate,
+      isLoadingTemplate,
+      loadingActionsCount,
+      isNight,
+    } = this.state;
     let mapView;
 
     if (isLoadingTemplate || !emojiWeatherMapTemplate) {
@@ -63,12 +80,13 @@ class App extends Component {
           template={emojiWeatherMapTemplate}
           onLoading={this.handleLoadingActionStart}
           onLoaded={this.handleLoadingActionEnd}
+          onWeatherLoaded={this.handleWeatherLoaded}
         ></EmojiWeatherMap>
       );
     }
     return (
       <ApiBaseUrlContext.Provider value={this.apiBaseUrl}>
-        <div className="App">
+        <div className={isNight ? "App App--night" : "App"}>
           <div className="container">
             <div className="row align-items-center App__body">
               <div className="col-12 App__settings">

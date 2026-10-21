@@ -51,6 +51,7 @@ class EmojiWeatherMap extends Component {
       .catch(() => coordinates.map(() => ({ weatherCode: null })))
       .then((weathers) => {
         this.props.onLoaded();
+        this.props.onWeatherLoaded(weathers);
         this.setState({ weathers });
       });
   }
