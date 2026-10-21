@@ -3,9 +3,74 @@
     text-align: center;
   }
 
-  select {
+  input {
     text-align: center;
     font-weight: bold;
     font-size: 1.5em;
+    height: auto;
+  }
+
+  &__field {
+    position: relative;
+  }
+
+  &__menu {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    left: 15px;
+    right: 15px;
+    max-height: min(320px, 50vh);
+    margin: 4px 0 0;
+    padding: 4px 0;
+    overflow-y: auto;
+    list-style: none;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+    &--open {
+      display: block;
+    }
+  }
+
+  &__item,
+  &__empty {
+    padding: 8px 16px;
+    font-size: 1.1em;
+  }
+
+  &__item {
+    cursor: pointer;
+
+    &--selected {
+      font-weight: bold;
+    }
+
+    &--highlighted {
+      background-color: #e9f0ff;
+    }
+  }
+
+  &__empty {
+    color: #6c757d;
+  }
+
+  .App--night & {
+    &__menu {
+      background-color: #1d2650;
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    &__item--highlighted {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    &__empty {
+      color: #9aa3c7;
+    }
   }
 }
