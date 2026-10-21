@@ -97,6 +97,14 @@ class App extends Component {
                     target="_blank"
                   >
                     View source
+                  </a>{" "}
+                  -{" "}
+                  <a
+                    href="https://open-meteo.com/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Weather data by Open-Meteo.com
                   </a>
                 </p>
               </div>

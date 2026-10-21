@@ -1,19 +1,27 @@
 import React, { Component } from "react";
-import { ApiBaseUrlContext } from "../Context/ApiBaseUrlContext";
 import LoadingImage from "../assets/EmojiWeatherMapEmojiLoading.svg";
 
+// Convert an Open-Meteo WMO weather code to the OpenWeatherMap-style icon
+// code ("01d", "10n"...) used by the emoji and label mappings below.
+// See https://open-meteo.com/en/docs#weather_variable_documentation
+function getIconCode(weatherCode, isDay) {
+  let icon;
+  if (weatherCode === 0) icon = "01"; // Clear sky
+  else if (weatherCode === 1) icon = "02"; // Mainly clear
+  else if (weatherCode === 2) icon = "03"; // Partly cloudy
+  else if (weatherCode === 3) icon = "04"; // Overcast
+  else if ([45, 48].includes(weatherCode)) icon = "50"; // Fog
+  else if ([51, 53, 55, 56, 57, 80, 81, 82].includes(weatherCode))
+    icon = "09"; // Drizzle, rain showers
+  else if ([61, 63, 65].includes(weatherCode)) icon = "10"; // Rain
+  else if ([66, 67, 71, 73, 75, 77, 85, 86].includes(weatherCode))
+    icon = "13"; // Freezing rain, snow
+  else if ([95, 96, 99].includes(weatherCode)) icon = "11"; // Thunderstorm
+  else return null;
+  return icon + (isDay ? "d" : "n");
+}
+
 class EmojiWeatherMapEmoji extends Component {
-  static contextType = ApiBaseUrlContext;
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoading: false,
-      currentWeatherIcon: null,
-    };
-  }
-
   getCurrentWeatherIcon(data) {
     let currentWeatherIcon;
     switch (data) {
@@ -126,37 +134,10 @@ class EmojiWeatherMapEmoji extends Component {
     return currentWeatherLabel;
   }
 
-  componentDidMount() {
-    this.dataProviderEndpoint =
-      this.context +
-      "?latitude=" +
-      this.props.geographicCoordinates.latitude +
-      "&longitude=" +
-      this.props.geographicCoordinates.longitude;
-
-    this.setState(() => {
-      this.props.onLoading();
-      return { isLoading: true };
-    });
-
-    fetch(this.dataProviderEndpoint)
-      .then((response) => response.text())
-      .then((data) => {
-        this.setState((state) => {
-          this.props.onLoaded();
-          return {
-            isLoading: false,
-            currentWeatherIcon: this.getCurrentWeatherIcon(data),
-            currentWeatherLabel: this.getCurrentWeatherLabel(data),
-          };
-        });
-      });
-  }
-
   render() {
-    const { isLoading, currentWeatherIcon, currentWeatherLabel } = this.state;
+    const { weather } = this.props;
 
-    if (isLoading) {
+    if (!weather) {
       return (
         <span
           className="emojiWeatherMap__emojiLoading"
@@ -167,6 +148,9 @@ class EmojiWeatherMapEmoji extends Component {
         </span>
       );
     } else {
+      const iconCode = getIconCode(weather.weatherCode, weather.isDay);
+      const currentWeatherIcon = this.getCurrentWeatherIcon(iconCode);
+      const currentWeatherLabel = this.getCurrentWeatherLabel(iconCode);
       return (
         <span
           className="emojiWeatherMap__emoji"

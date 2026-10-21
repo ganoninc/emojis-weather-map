@@ -4,6 +4,9 @@ import EmojiWeatherMapEmoji from "./EmojiWeatherMapEmoji";
 
 class EmojiWeatherMapRow extends Component {
   render() {
+    const { weathers } = this.props;
+    let emojiIndex = 0;
+
     return (
       <div className="emojiWeatherMap__row">
         {this.props.row.items.map((item, index) => {
@@ -19,11 +22,10 @@ class EmojiWeatherMapRow extends Component {
             returnedItem = (
               <EmojiWeatherMapEmoji
                 key={index}
-                geographicCoordinates={item.geographicCoordinates}
-                onLoading={this.props.onLoading}
-                onLoaded={this.props.onLoaded}
+                weather={weathers && weathers[emojiIndex]}
               ></EmojiWeatherMapEmoji>
             );
+            emojiIndex++;
           }
           return returnedItem;
         })}
