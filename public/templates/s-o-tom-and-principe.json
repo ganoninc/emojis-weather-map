@@ -1,0 +1,122 @@
+{
+  "name": "São Tomé and Principe",
+  "icon": "🇸🇹",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 2
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.336447,
+            "longitude": 6.553323
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.355744,
+            "longitude": 6.629256
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.350032,
+            "longitude": 6.700571
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.266999,
+            "longitude": 6.512892
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.270879,
+            "longitude": 6.592321
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.270879,
+            "longitude": 6.682321
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.273119,
+            "longitude": 6.738209
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 1
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.182674,
+            "longitude": 6.522524
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.180879,
+            "longitude": 6.609398
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.190833,
+            "longitude": 6.682908
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 2
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.098878,
+            "longitude": 6.543707
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 0.111792,
+            "longitude": 6.613517
+          }
+        }
+      ]
+    }
+  ]
+}

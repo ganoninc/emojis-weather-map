@@ -1,0 +1,36 @@
+{
+  "name": "Maldives",
+  "icon": "🇲🇻",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 1
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 4.22144,
+            "longitude": 73.511992
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 4.179604,
+            "longitude": 73.497451
+          }
+        }
+      ]
+    }
+  ]
+}

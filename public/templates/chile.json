@@ -1,0 +1,163 @@
+{
+  "name": "Chile",
+  "icon": "🇨🇱",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 7
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -19.727822,
+            "longitude": -69.446445
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 7
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -23.274739,
+            "longitude": -69.063394
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 6
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -26.955283,
+            "longitude": -69.853902
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 6
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -30.751101,
+            "longitude": -70.839388
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 4
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -34.765475,
+            "longitude": -71.231775
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 3
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -38.416037,
+            "longitude": -72.352129
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 3
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -42.565235,
+            "longitude": -73.959077
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 2
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -46.152731,
+            "longitude": -73.116364
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 1
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -49.892386,
+            "longitude": -73.715181
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -52.841543,
+            "longitude": -73.097206
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -53.69668,
+            "longitude": -69.328268
+          }
+        }
+      ]
+    }
+  ]
+}

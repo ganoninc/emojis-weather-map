@@ -1,0 +1,36 @@
+{
+  "name": "San Marino",
+  "icon": "🇸🇲",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 1
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 43.962048,
+            "longitude": 12.467001
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 43.921932,
+            "longitude": 12.45154
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "name": "Kiribati",
+  "icon": "🇰🇮",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 5
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 2.009187,
+            "longitude": -157.441832
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.984658,
+            "longitude": -157.38424
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.899147,
+            "longitude": -157.53971
+          }
+        },
+        {
+          "type": "offset",
+          "length": 5
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.922751,
+            "longitude": -157.363501
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 1
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.863987,
+            "longitude": -157.505541
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.834741,
+            "longitude": -157.429491
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.830089,
+            "longitude": -157.353913
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.803026,
+            "longitude": -157.284591
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 9
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.781545,
+            "longitude": -157.373423
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.769075,
+            "longitude": -157.295688
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 1.75527,
+            "longitude": -157.228844
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "name": "Gambia",
+  "icon": "🇬🇲",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 23
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.672768,
+            "longitude": -15.32121
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.691945,
+            "longitude": -15.049822
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.637886,
+            "longitude": -14.780977
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.387607,
+            "longitude": -16.662515
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.476759,
+            "longitude": -16.356303
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.520825,
+            "longitude": -16.054516
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.389123,
+            "longitude": -15.754707
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.475781,
+            "longitude": -15.368902
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.493872,
+            "longitude": -15.25675
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.503029,
+            "longitude": -14.833451
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.440953,
+            "longitude": -14.555285
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.401691,
+            "longitude": -14.24976
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.41654,
+            "longitude": -13.984228
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.21395,
+            "longitude": -16.656918
+          }
+        },
+        {
+          "type": "offset",
+          "length": 1
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.221726,
+            "longitude": -16.293789
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.225174,
+            "longitude": -15.997084
+          }
+        }
+      ]
+    }
+  ]
+}

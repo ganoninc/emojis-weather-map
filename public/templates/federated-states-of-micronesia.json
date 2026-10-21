@@ -1,0 +1,79 @@
+{
+  "name": "Federated States of Micronesia",
+  "icon": "🇫🇲",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 2
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 6.948993,
+            "longitude": 158.184823
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 6.944339,
+            "longitude": 158.259393
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 6.895059,
+            "longitude": 158.167035
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 6.884375,
+            "longitude": 158.235492
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 6.886422,
+            "longitude": 158.301351
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 3
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 6.818849,
+            "longitude": 158.210991
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 6.818981,
+            "longitude": 158.273911
+          }
+        }
+      ]
+    }
+  ]
+}

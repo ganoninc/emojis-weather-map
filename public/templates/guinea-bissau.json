@@ -1,0 +1,271 @@
+{
+  "name": "Guinea-Bissau",
+  "icon": "🇬🇼",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 16
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.500263,
+            "longitude": -15.364441
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.541573,
+            "longitude": -15.081495
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.541536,
+            "longitude": -14.778266
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.540895,
+            "longitude": -14.47445
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.540269,
+            "longitude": -14.170611
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.53799,
+            "longitude": -13.869698
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.274508,
+            "longitude": -16.285353
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.256129,
+            "longitude": -16.004421
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.256129,
+            "longitude": -15.700593
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.256129,
+            "longitude": -15.396765
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.256129,
+            "longitude": -15.092937
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.256129,
+            "longitude": -14.789109
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.256129,
+            "longitude": -14.485281
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.256129,
+            "longitude": -14.181453
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.290082,
+            "longitude": -13.905185
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 5
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.981831,
+            "longitude": -16.018741
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.963829,
+            "longitude": -15.72096
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.984786,
+            "longitude": -15.407041
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.958008,
+            "longitude": -15.196889
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.958733,
+            "longitude": -14.804675
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.958733,
+            "longitude": -14.500847
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.958733,
+            "longitude": -14.197019
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.948789,
+            "longitude": -13.902214
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 17
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.699901,
+            "longitude": -15.322605
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.664228,
+            "longitude": -15.015773
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.661589,
+            "longitude": -14.720747
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.692643,
+            "longitude": -14.433
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.733492,
+            "longitude": -14.113636
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 18
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.366604,
+            "longitude": -15.259879
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.368323,
+            "longitude": -14.971992
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 21
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 11.105224,
+            "longitude": -15.005605
+          }
+        }
+      ]
+    }
+  ]
+}

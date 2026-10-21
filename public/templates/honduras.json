@@ -1,0 +1,254 @@
+{
+  "name": "Honduras",
+  "icon": "🇭🇳",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 26
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.834752,
+            "longitude": -85.824405
+          }
+        },
+        {
+          "type": "offset",
+          "length": 2
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.82383,
+            "longitude": -84.975539
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 4
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.347561,
+            "longitude": -88.372136
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.402817,
+            "longitude": -87.800143
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.402817,
+            "longitude": -87.179635
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.402817,
+            "longitude": -86.559127
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.402817,
+            "longitude": -85.938619
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.402817,
+            "longitude": -85.318112
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.402817,
+            "longitude": -84.697604
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 15.366102,
+            "longitude": -84.129871
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.799549,
+            "longitude": -88.882243
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.802078,
+            "longitude": -88.271117
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.802078,
+            "longitude": -87.650609
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.802078,
+            "longitude": -87.030101
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.802078,
+            "longitude": -86.409593
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.802078,
+            "longitude": -85.789085
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.834135,
+            "longitude": -85.20442
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.895454,
+            "longitude": -84.538282
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.945755,
+            "longitude": -83.956693
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 2
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.255752,
+            "longitude": -88.618338
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.213541,
+            "longitude": -88.029241
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.20134,
+            "longitude": -87.415122
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.20134,
+            "longitude": -86.794614
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.221116,
+            "longitude": -86.182404
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 14.265679,
+            "longitude": -85.609267
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 12
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.613352,
+            "longitude": -87.453197
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.618611,
+            "longitude": -86.927957
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 15
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.160644,
+            "longitude": -87.162702
+          }
+        }
+      ]
+    }
+  ]
+}

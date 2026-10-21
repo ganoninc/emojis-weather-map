@@ -1,0 +1,21 @@
+{
+  "name": "Vatican",
+  "icon": "🇻🇦",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 41.90175,
+            "longitude": 12.433872
+          }
+        }
+      ]
+    }
+  ]
+}

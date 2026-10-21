@@ -1,0 +1,58 @@
+{
+  "name": "Liechtenstein",
+  "icon": "🇱🇮",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 1
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 47.230364,
+            "longitude": 9.526981
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 47.157612,
+            "longitude": 9.53075
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 47.090453,
+            "longitude": 9.538992
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 47.103134,
+            "longitude": 9.60134
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "Saint Vincent and the Grenadines",
+  "icon": "🇻🇨",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 2
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.317589,
+            "longitude": -61.207386
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.324921,
+            "longitude": -61.154677
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 1
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.249401,
+            "longitude": -61.234188
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.251671,
+            "longitude": -61.162441
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.187375,
+            "longitude": -61.233303
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 13.181143,
+            "longitude": -61.183988
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "Grenada",
+  "icon": "🇬🇩",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 3
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.193954,
+            "longitude": -61.676284
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.199205,
+            "longitude": -61.630035
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 1
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.118553,
+            "longitude": -61.713408
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.123968,
+            "longitude": -61.65129
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.042055,
+            "longitude": -61.732859
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 12.056123,
+            "longitude": -61.668913
+          }
+        }
+      ]
+    }
+  ]
+}

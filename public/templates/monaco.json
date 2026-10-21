@@ -1,0 +1,21 @@
+{
+  "name": "Monaco",
+  "icon": "🇲🇨",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 43.752746,
+            "longitude": 7.406277
+          }
+        }
+      ]
+    }
+  ]
+}

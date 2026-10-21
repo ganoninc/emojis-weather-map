@@ -1,0 +1,21 @@
+{
+  "name": "Tuvalu",
+  "icon": "🇹🇻",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -8.503452,
+            "longitude": 179.205565
+          }
+        }
+      ]
+    }
+  ]
+}

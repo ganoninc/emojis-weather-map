@@ -1,0 +1,64 @@
+{
+  "name": "Antigua and Barbuda",
+  "icon": "🇦🇬",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 17.105125,
+            "longitude": -61.858512
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 17.11978,
+            "longitude": -61.794799
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 17.102961,
+            "longitude": -61.723313
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 17.052304,
+            "longitude": -61.858019
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 17.043283,
+            "longitude": -61.791628
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 17.054986,
+            "longitude": -61.722101
+          }
+        }
+      ]
+    }
+  ]
+}

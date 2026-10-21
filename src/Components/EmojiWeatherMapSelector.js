@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import countries from "../countries.json";
 import "../styles/EmojiWeatherMapSelector.scss";
 
 class EmojiWeatherMapSelector extends Component {
@@ -48,7 +49,11 @@ class EmojiWeatherMapSelector extends Component {
               id="mapSelector"
               name="mapSelector"
             >
-              <option value="france.json">🇫🇷 France</option>
+              {countries.map((country) => (
+                <option key={country.template} value={country.template}>
+                  {country.icon} {country.name}
+                </option>
+              ))}
             </select>
           </div>
         </div>

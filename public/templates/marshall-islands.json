@@ -1,0 +1,57 @@
+{
+  "name": "Marshall Islands",
+  "icon": "🇲🇭",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 7.140343,
+            "longitude": 171.080002
+          }
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 2
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 7.107603,
+            "longitude": 171.134052
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 7.085464,
+            "longitude": 171.210161
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 7.088031,
+            "longitude": 171.298588
+          }
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": 7.101565,
+            "longitude": 171.364977
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Nauru",
+  "icon": "🇳🇷",
+  "rows": [
+    {
+      "items": [
+        {
+          "type": "offset",
+          "length": 0
+        },
+        {
+          "type": "emoji",
+          "geographicCoordinates": {
+            "latitude": -0.519126,
+            "longitude": 166.932568
+          }
+        }
+      ]
+    }
+  ]
+}
