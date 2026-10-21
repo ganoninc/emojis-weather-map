@@ -1,15 +1,21 @@
-# Emoji Weather Map
-This React App displays weather forecast using emojis.
+# 🌦️ Emoji Weather Map
 
-This is my very first React App. The goal is to learn React while having some fun.
+A weather forecast map where **emojis bring the weather to life**! 🗺️☀️🌧️
 
-You can try the app there: https://ganoninc.github.io/emojis-weather-map
+🔗 **Try it live:** [ganoninc.github.io/emojis-weather-map](https://ganoninc.github.io/emojis-weather-map)
 
-## TODO
+## 📖 About
 
-* Add export to twitter button
-* Add support for platforms without native emoji support
-* Add night mode
+Originally created in 2008, Emoji Weather Map was my very first React app. The idea was simple: learn React while having some fun by visualizing weather forecasts with emojis.
 
-## Inspiration
-The idead poped in my mind after seeing this tweet from Meteo France: https://twitter.com/meteofrance/status/1019233192748965888
+In 2026, the project is back! 🚀 With a little help from AI, the app is getting a new lease on life, with fresh features and improvements.
+
+What started as a learning experiment is now a fun little project, revisited with modern tools and a renewed sense of curiosity.
+
+## 💡 Inspiration
+
+The original idea came to me after seeing this tweet from Météo-France:
+
+👉 [Météo-France on Twitter](https://twitter.com/meteofrance/status/1019233192748965888)
+
+Sometimes, all it takes is a few emojis to make the weather forecast more fun! 🌈
