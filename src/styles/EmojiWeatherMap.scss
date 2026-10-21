@@ -62,12 +62,12 @@ $offset-space-size-xs-height: $emoji-size-xs;
     font-family: Arial;
     margin: auto;
     text-align: left;
+    width: fit-content; // shrink to the widest row so `margin: auto` centers the country
     white-space: nowrap;
     padding-top: 25px;
     padding-bottom: 25px;
 
     @include media-breakpoint-down(xl) {
-        width: $map-size-xl;
         height: $map-size-xl;
         margin: auto;
         font-size: $emoji-size-xl;
@@ -75,7 +75,6 @@ $offset-space-size-xs-height: $emoji-size-xs;
     }
 
     @include media-breakpoint-down(lg) {
-        width: $map-size-lg;
         height: $map-size-lg;
         margin: auto;
         font-size: $emoji-size-lg;
@@ -83,7 +82,6 @@ $offset-space-size-xs-height: $emoji-size-xs;
     }
 
     @include media-breakpoint-down(md) {
-        width: $map-size-md;
         height: $map-size-md;
         margin: auto;
         font-size: $emoji-size-md;
@@ -91,7 +89,6 @@ $offset-space-size-xs-height: $emoji-size-xs;
     }
 
     @include media-breakpoint-down(sm) {
-        width: $map-size-sm;
         height: $map-size-sm;
         margin: auto;
         font-size: $emoji-size-sm;
@@ -99,7 +96,6 @@ $offset-space-size-xs-height: $emoji-size-xs;
     }
 
     @include media-breakpoint-down(xs) {
-        width: $map-size-xs;
         height: $map-size-xs;
         margin: auto;
         font-size: $emoji-size-xs;

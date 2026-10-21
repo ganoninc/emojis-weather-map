@@ -6,7 +6,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 24
+          "length": 17
         },
         {
           "type": "emoji",
@@ -21,7 +21,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 13
+          "length": 6
         },
         {
           "type": "emoji",
@@ -57,7 +57,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 7
+          "length": 0
         },
         {
           "type": "emoji",
@@ -114,7 +114,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 10
+          "length": 3
         },
         {
           "type": "emoji",
@@ -164,7 +164,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 14
+          "length": 7
         },
         {
           "type": "emoji",
@@ -207,7 +207,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 13
+          "length": 6
         },
         {
           "type": "emoji",
@@ -250,7 +250,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 10
+          "length": 3
         },
         {
           "type": "emoji",
@@ -301,7 +301,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 10
+          "length": 3
         },
         {
           "type": "emoji",
@@ -330,7 +330,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 44
+          "length": 37
         },
         {
           "type": "emoji",
@@ -345,7 +345,7 @@
       "items": [
         {
           "type": "offset",
-          "length": 44
+          "length": 37
         },
         {
           "type": "emoji",
