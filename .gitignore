@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+/dist
 
 # misc
 .DS_Store
@@ -48,3 +48,9 @@ yarn-error.log*
 # python tools
 /tools/.venv
 __pycache__/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
