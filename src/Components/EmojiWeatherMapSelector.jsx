@@ -3,15 +3,21 @@ import { useCombobox } from "downshift";
 import countries from "../countries.json";
 import "../styles/EmojiWeatherMapSelector.scss";
 
-const templateBaseUrl = process.env.PUBLIC_URL + "/templates/";
+const templateBaseUrl = import.meta.env.BASE_URL + "templates/";
 const defaultCountry = countries.find(
-  (country) => country.template === "france.json"
+  (country) => country.template === "france.json",
 );
 
 // Other names people may type to find a country.
 const aliases = {
   "united-states-of-america.json": ["USA", "US", "America"],
-  "united-kingdom.json": ["UK", "Great Britain", "England", "Scotland", "Wales"],
+  "united-kingdom.json": [
+    "UK",
+    "Great Britain",
+    "England",
+    "Scotland",
+    "Wales",
+  ],
   "united-arab-emirates.json": ["UAE"],
   "netherlands.json": ["Holland"],
   "czechia.json": ["Czech Republic"],
@@ -25,10 +31,7 @@ const aliases = {
 const { stateChangeTypes } = useCombobox;
 
 function normalize(text) {
-  return text
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase();
+  return text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 }
 
 function countryToString(country) {
@@ -46,14 +49,14 @@ function filterCountries(query) {
   const matches = [];
   countries.forEach((country) => {
     const names = [country.name, ...(aliases[country.template] || [])].map(
-      normalize
+      normalize,
     );
     let rank = null;
     if (names.some((name) => name.startsWith(search))) {
       rank = 0;
     } else if (
       names.some((name) =>
-        name.split(/[\s-]+/).some((word) => word.startsWith(search))
+        name.split(/[\s-]+/).some((word) => word.startsWith(search)),
       )
     ) {
       rank = 1;
@@ -64,9 +67,7 @@ function filterCountries(query) {
       matches.push({ country, rank });
     }
   });
-  return matches
-    .sort((a, b) => a.rank - b.rank)
-    .map((match) => match.country);
+  return matches.sort((a, b) => a.rank - b.rank).map((match) => match.country);
 }
 
 function EmojiWeatherMapSelector({ onMapSelected, isLoadingTemplate }) {

@@ -20,7 +20,7 @@ class App extends Component {
       isNight: false,
     };
 
-    this.apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+    this.apiBaseUrl = import.meta.env.VITE_WEATHER_API_BASE_URL;
   }
 
   handleLoadingActionStart() {
