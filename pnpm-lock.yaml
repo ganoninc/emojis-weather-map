@@ -23,6 +23,9 @@ importers:
       react-dom:
         specifier: ^16.8.6
         version: 16.14.0(react@16.14.0)
+      react-router-dom:
+        specifier: ^6.30.6
+        version: 6.30.6(react-dom@16.14.0(react@16.14.0))(react@16.14.0)
       sass:
         specifier: ^1.89.2
         version: 1.100.0
@@ -590,6 +593,10 @@ packages:
   '@poppinss/exception@1.2.3':
     resolution: {integrity: sha512-dCED+QRChTVatE9ibtoaxc+WkdzOSjYTKi/+uacHWIsfodVfpsueo3+DKpgU5Px8qXjgmXkSvhXvSCz3fnP9lw==}
 
+  '@remix-run/router@1.23.4':
+    resolution: {integrity: sha512-q7j5geK7xs3UJSdm9/iytUNclBnLmYx1EnSeCFXHPeutdqgIMeFeHtUZgS3EhlKxdBEAu8OwtJCwmLrEzpSs7Q==}
+    engines: {node: '>=14.0.0'}
+
   '@restart/context@2.1.4':
     resolution: {integrity: sha512-INJYZQJP7g+IoDUh/475NlGiTeMfwTXUEr3tmRneckHIxNolGOW9CTq83S8cxq0CgJwwcMzMJFchxvlwe7Rk8Q==}
     peerDependencies:
@@ -1076,6 +1083,19 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
       react-dom: '>=16.3.0'
+
+  react-router-dom@6.30.6:
+    resolution: {integrity: sha512-0RHKZz7wwffvkU+2MFVT2NnjK44ssLEV+m0CAJaS2Ksmorrwj7WxH00jO0SOCW26/tINUnJHToXblDs33I38YQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+
+  react-router@6.30.6:
+    resolution: {integrity: sha512-5HfK7k5im7LTOB0EqCQmfvy4C13G92Ssj1VTmouTK3AJvyjKTnFuCV0vcMAD/JS+JC4DvDIBRrlAeJIFjh5VWg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
 
   react-transition-group@4.4.5:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
@@ -1691,6 +1711,8 @@ snapshots:
 
   '@poppinss/exception@1.2.3': {}
 
+  '@remix-run/router@1.23.4': {}
+
   '@restart/context@2.1.4(react@16.14.0)':
     dependencies:
       react: 16.14.0
@@ -2117,6 +2139,18 @@ snapshots:
       react-dom: 16.14.0(react@16.14.0)
       uncontrollable: 7.2.1(react@16.14.0)
       warning: 4.0.3
+
+  react-router-dom@6.30.6(react-dom@16.14.0(react@16.14.0))(react@16.14.0):
+    dependencies:
+      '@remix-run/router': 1.23.4
+      react: 16.14.0
+      react-dom: 16.14.0(react@16.14.0)
+      react-router: 6.30.6(react@16.14.0)
+
+  react-router@6.30.6(react@16.14.0):
+    dependencies:
+      '@remix-run/router': 1.23.4
+      react: 16.14.0
 
   react-transition-group@4.4.5(react-dom@16.14.0(react@16.14.0))(react@16.14.0):
     dependencies:
