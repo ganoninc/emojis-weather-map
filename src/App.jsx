@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ApiBaseUrlContext } from "./Context/ApiBaseUrlContext";
 import EmojiWeatherMapSettings from "./Components/EmojiWeatherMapSettings";
 import EmojiWeatherMap from "./Components/EmojiWeatherMap";
+import { cachedFetchJson } from "./utils/cachedFetch";
 import "./styles/App.scss";
 
 class App extends Component {
@@ -53,8 +54,8 @@ class App extends Component {
   handleSelectedMap(mapTemplateURL) {
     this.setState({ isLoadingTemplate: true });
 
-    fetch(mapTemplateURL)
-      .then((response) => response.json())
+    // Templates are static: cache them for the whole session.
+    cachedFetchJson(mapTemplateURL)
       .then((data) => {
         this.setState({
           emojiWeatherMapTemplate: data,
