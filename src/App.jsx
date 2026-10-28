@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ApiBaseUrlContext } from "./Context/ApiBaseUrlContext";
 import EmojiWeatherMapSettings from "./Components/EmojiWeatherMapSettings";
 import EmojiWeatherMap from "./Components/EmojiWeatherMap";
+import EmojiWeatherMapStatus from "./Components/EmojiWeatherMapStatus";
 import "./styles/App.scss";
 
 class App extends Component {
@@ -12,12 +13,15 @@ class App extends Component {
     this.handleLoadingActionEnd = this.handleLoadingActionEnd.bind(this);
     this.handleSelectedMap = this.handleSelectedMap.bind(this);
     this.handleWeatherLoaded = this.handleWeatherLoaded.bind(this);
+    this.handleRefresh = this.handleRefresh.bind(this);
 
     this.state = {
       emojiWeatherMapTemplate: null,
       isLoadingTemplate: false,
       loadingActionsCount: 0,
       isNight: false,
+      lastUpdated: null,
+      refreshKey: 0,
     };
 
     this.apiBaseUrl = import.meta.env.VITE_WEATHER_API_BASE_URL;
@@ -47,11 +51,22 @@ class App extends Component {
       return;
     }
     const nightCount = known.filter((weather) => !weather.isDay).length;
-    this.setState({ isNight: nightCount > known.length / 2 });
+    this.setState({
+      isNight: nightCount > known.length / 2,
+      lastUpdated: new Date(),
+    });
+  }
+
+  handleRefresh() {
+    this.setState((state) => {
+      return {
+        refreshKey: state.refreshKey + 1,
+      };
+    });
   }
 
   handleSelectedMap(mapTemplateURL) {
-    this.setState({ isLoadingTemplate: true });
+    this.setState({ isLoadingTemplate: true, lastUpdated: null });
 
     fetch(mapTemplateURL)
       .then((response) => response.json())
@@ -69,6 +84,8 @@ class App extends Component {
       isLoadingTemplate,
       loadingActionsCount,
       isNight,
+      lastUpdated,
+      refreshKey,
     } = this.state;
     let mapView;
 
@@ -78,6 +95,7 @@ class App extends Component {
       mapView = (
         <EmojiWeatherMap
           template={emojiWeatherMapTemplate}
+          refreshKey={refreshKey}
           onLoading={this.handleLoadingActionStart}
           onLoaded={this.handleLoadingActionEnd}
           onWeatherLoaded={this.handleWeatherLoaded}
@@ -95,6 +113,13 @@ class App extends Component {
                   onMapSelected={this.handleSelectedMap}
                   isLoadingTemplate={isLoadingTemplate}
                 ></EmojiWeatherMapSettings>
+              </div>
+              <div className="col-12 App__status">
+                <EmojiWeatherMapStatus
+                  lastUpdated={lastUpdated}
+                  isRefreshing={loadingActionsCount > 0}
+                  onRefresh={this.handleRefresh}
+                ></EmojiWeatherMapStatus>
               </div>
               <div className="col-12 App__mapView">{mapView}</div>
               <div className="col-12 App__footer">

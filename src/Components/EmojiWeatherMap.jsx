@@ -25,6 +25,18 @@ class EmojiWeatherMap extends Component {
   }
 
   componentDidMount() {
+    this.loadWeather();
+  }
+
+  componentDidUpdate(prevProps) {
+    // Bumping refreshKey re-fetches the weather, keeping the current emojis
+    // on screen until the new data arrives.
+    if (prevProps.refreshKey !== this.props.refreshKey) {
+      this.loadWeather();
+    }
+  }
+
+  loadWeather() {
     const coordinates = this.getCoordinates();
 
     // Open-Meteo accepts comma-separated lists: one request for the whole map.

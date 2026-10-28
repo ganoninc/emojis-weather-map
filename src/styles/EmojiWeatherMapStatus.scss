@@ -1,0 +1,53 @@
+.EmojiWeatherMapStatus {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1em;
+    padding-top: 15pt;
+    font-size: 0.9em;
+    opacity: 0.75;
+
+    &__date {
+        font-weight: 600;
+    }
+
+    &__lastUpdated {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    &__refresh {
+        margin-left: 0.4em;
+        padding: 0 0.35em;
+        border: 1px solid currentColor;
+        border-radius: 50%;
+        background: transparent;
+        color: inherit;
+        line-height: 1.4;
+        cursor: pointer;
+
+        &:hover:not(:disabled) {
+            background: rgba(127, 127, 127, 0.15);
+        }
+
+        &:disabled {
+            cursor: default;
+            opacity: 0.6;
+        }
+    }
+
+    &__refreshIcon {
+        display: inline-block;
+
+        &--spinning {
+            animation: EmojiWeatherMapStatus-spin 1s linear infinite;
+        }
+    }
+}
+
+@keyframes EmojiWeatherMapStatus-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
