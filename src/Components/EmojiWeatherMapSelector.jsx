@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useCombobox } from "downshift";
+import { useNavigate, useParams } from "react-router-dom";
 import countries from "../countries.json";
 import "../styles/EmojiWeatherMapSelector.scss";
 
@@ -32,6 +33,11 @@ const { stateChangeTypes } = useCombobox;
 
 function normalize(text) {
   return text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+}
+
+// URL slug of a country, e.g. "united-kingdom" for /united-kingdom.
+function countryToSlug(country) {
+  return country.template.replace(/\.json$/, "");
 }
 
 function countryToString(country) {
@@ -71,9 +77,20 @@ function filterCountries(query) {
 }
 
 function EmojiWeatherMapSelector({ onMapSelected, isLoadingTemplate }) {
-  const [selectedCountry, setSelectedCountry] = useState(defaultCountry);
+  const { country: slug } = useParams();
+  const navigate = useNavigate();
+  const urlCountry =
+    slug && countries.find((country) => countryToSlug(country) === slug);
+  const selectedCountry = urlCountry || defaultCountry;
   const [query, setQuery] = useState("");
   const items = filterCountries(query);
+
+  // Unknown country in the URL: fall back to the default one.
+  useEffect(() => {
+    if (slug && !urlCountry) {
+      navigate("/", { replace: true });
+    }
+  }, [slug, urlCountry, navigate]);
 
   useEffect(() => {
     onMapSelected(templateBaseUrl + selectedCountry.template);
@@ -93,7 +110,7 @@ function EmojiWeatherMapSelector({ onMapSelected, isLoadingTemplate }) {
     itemToString: countryToString,
     onSelectedItemChange: ({ selectedItem }) => {
       if (selectedItem) {
-        setSelectedCountry(selectedItem);
+        navigate("/" + countryToSlug(selectedItem));
       }
     },
     // Only what the user types filters the list, not the selected name.

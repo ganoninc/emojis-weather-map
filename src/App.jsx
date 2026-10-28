@@ -3,6 +3,7 @@ import { ApiBaseUrlContext } from "./Context/ApiBaseUrlContext";
 import EmojiWeatherMapSettings from "./Components/EmojiWeatherMapSettings";
 import EmojiWeatherMap from "./Components/EmojiWeatherMap";
 import EmojiWeatherMapStatus from "./Components/EmojiWeatherMapStatus";
+import { cachedFetchJson } from "./utils/cachedFetch";
 import "./styles/App.scss";
 
 // Weather older than this is reloaded automatically. Open-Meteo updates its
@@ -128,8 +129,8 @@ class App extends Component {
       timeZoneAbbreviation: null,
     });
 
-    fetch(mapTemplateURL)
-      .then((response) => response.json())
+    // Templates are static: cache them for the whole session.
+    cachedFetchJson(mapTemplateURL)
       .then((data) => {
         this.setState({
           emojiWeatherMapTemplate: data,

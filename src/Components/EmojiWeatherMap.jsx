@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import { ApiBaseUrlContext } from "../Context/ApiBaseUrlContext";
 import EmojiWeatherMapRow from "./EmojiWeatherMapRow";
 // import EmojiWeatherMapLabel from "./EmojiWeatherMapLabel";
+import { cachedFetchJson } from "../utils/cachedFetch";
 import "../styles/EmojiWeatherMap.scss";
+
+// Open-Meteo refreshes "current" data every 15 minutes.
+const WEATHER_CACHE_TTL_MS = 15 * 60 * 1000;
 
 class EmojiWeatherMap extends Component {
   static contextType = ApiBaseUrlContext;
@@ -32,11 +36,11 @@ class EmojiWeatherMap extends Component {
     // Bumping refreshKey re-fetches the weather, keeping the current emojis
     // on screen until the new data arrives.
     if (prevProps.refreshKey !== this.props.refreshKey) {
-      this.loadWeather();
+      this.loadWeather(true);
     }
   }
 
-  loadWeather() {
+  loadWeather(bypassCache = false) {
     const coordinates = this.getCoordinates();
 
     // Open-Meteo accepts comma-separated lists: one request for the whole map.
@@ -51,8 +55,8 @@ class EmojiWeatherMap extends Component {
 
     this.props.onLoading();
 
-    fetch(dataProviderEndpoint)
-      .then((response) => response.json())
+    // A refresh skips the cache, otherwise it would return the same data.
+    cachedFetchJson(dataProviderEndpoint, bypassCache ? 0 : WEATHER_CACHE_TTL_MS)
       .then((data) => {
         // A single location is returned as an object, several as an array.
         const locations = Array.isArray(data) ? data : [data];
