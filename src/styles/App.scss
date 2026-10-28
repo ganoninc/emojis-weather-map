@@ -1,5 +1,6 @@
 @import "bootstrap/scss/bootstrap";
 
+$day-sky: #cfe8fc;
 $night-sky-top: #070b1f;
 $night-sky-bottom: #1d2650;
 $night-text: #e3e7f7;
@@ -10,6 +11,19 @@ $theme-transition: 1s ease;
 .App {
   min-height: 100vh;
   transition: color $theme-transition;
+
+  // Day sky, always behind the night sky so the two cross-fade.
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+    pointer-events: none;
+    background: $day-sky;
+  }
 
   // Night sky, faded in over the white page when it's night in the country.
   &::before {

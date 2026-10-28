@@ -152,12 +152,20 @@ function EmojiWeatherMapSelector({ onMapSelected, isLoadingTemplate }) {
             {...getInputProps({
               disabled: isLoadingTemplate,
               className: "form-control",
+              placeholder: "Search a country…",
               onFocus: () => {
                 if (!isOpen) {
                   openMenu();
                 }
               },
             })}
+          />
+          <span
+            className={
+              "EmojiWeatherMapSelector__chevron" +
+              (isOpen ? " EmojiWeatherMapSelector__chevron--open" : "")
+            }
+            aria-hidden="true"
           />
           <ul
             {...getMenuProps({
