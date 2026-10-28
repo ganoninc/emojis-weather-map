@@ -2,9 +2,14 @@
 // the data) also dedupes requests made while the first one is in flight.
 const cache = new Map();
 
-export function cachedFetchJson(url, ttlMs = Infinity) {
+// `getExpiry(fetchedAt)` returns when the response goes stale (never by
+// default); `refresh` skips the cached one.
+export function cachedFetchJson(
+  url,
+  { getExpiry = () => Infinity, refresh = false } = {}
+) {
   const entry = cache.get(url);
-  if (entry && Date.now() - entry.time < ttlMs) {
+  if (entry && !refresh && Date.now() < entry.expiresAt) {
     return entry.promise;
   }
 
@@ -16,8 +21,15 @@ export function cachedFetchJson(url, ttlMs = Infinity) {
   });
   // Failed requests aren't cached, so the next visit retries.
   promise.catch(() => cache.delete(url));
-  cache.set(url, { promise, time: Date.now() });
+  const time = Date.now();
+  cache.set(url, { promise, time, expiresAt: getExpiry(time) });
   return promise;
+}
+
+// When the cached response for `url` was fetched, or null.
+export function getFetchTime(url) {
+  const entry = cache.get(url);
+  return entry ? entry.time : null;
 }
 
 export function clearFetchCache() {
