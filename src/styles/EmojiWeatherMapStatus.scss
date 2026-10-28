@@ -1,0 +1,64 @@
+.EmojiWeatherMapStatus {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.75em;
+    min-height: 44px; // no layout jump while the weather loads
+    padding-top: 15pt;
+
+    &__timeZone {
+        font-size: 0.85em;
+        opacity: 0.8;
+    }
+
+    // The whole label is the button, so the tap target is comfortable on
+    // phones (44px minimum).
+    &__refresh {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        min-height: 44px;
+        padding: 0 0.9em;
+        border: 1px solid rgba(127, 127, 127, 0.4);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.35);
+        color: inherit;
+        font-size: 0.9em;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        &:disabled {
+            cursor: default;
+        }
+    }
+
+    &__refreshIcon {
+        display: inline-block;
+        font-size: 1.2em;
+        line-height: 1;
+
+        &--spinning {
+            animation: EmojiWeatherMapStatus-spin 1s linear infinite;
+        }
+    }
+}
+
+.App--night .EmojiWeatherMapStatus__refresh {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+
+    &:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.16);
+    }
+}
+
+@keyframes EmojiWeatherMapStatus-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

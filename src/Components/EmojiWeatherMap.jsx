@@ -29,6 +29,18 @@ class EmojiWeatherMap extends Component {
   }
 
   componentDidMount() {
+    this.loadWeather();
+  }
+
+  componentDidUpdate(prevProps) {
+    // Bumping refreshKey re-fetches the weather, keeping the current emojis
+    // on screen until the new data arrives.
+    if (prevProps.refreshKey !== this.props.refreshKey) {
+      this.loadWeather(true);
+    }
+  }
+
+  loadWeather(bypassCache = false) {
     const coordinates = this.getCoordinates();
 
     // Open-Meteo accepts comma-separated lists: one request for the whole map.
@@ -38,17 +50,22 @@ class EmojiWeatherMap extends Component {
       coordinates.map((c) => c.latitude).join(",") +
       "&longitude=" +
       coordinates.map((c) => c.longitude).join(",") +
-      "&current=weather_code,is_day";
+      "&current=weather_code,is_day,temperature_2m" +
+      "&timezone=auto";
 
     this.props.onLoading();
 
-    cachedFetchJson(dataProviderEndpoint, WEATHER_CACHE_TTL_MS)
+    // A refresh skips the cache, otherwise it would return the same data.
+    cachedFetchJson(dataProviderEndpoint, bypassCache ? 0 : WEATHER_CACHE_TTL_MS)
       .then((data) => {
         // A single location is returned as an object, several as an array.
         const locations = Array.isArray(data) ? data : [data];
         return locations.map((location) => ({
           weatherCode: location.current.weather_code,
           isDay: location.current.is_day === 1,
+          temperature: location.current.temperature_2m,
+          timeZone: location.timezone,
+          timeZoneAbbreviation: location.timezone_abbreviation,
         }));
       })
       .catch(() => coordinates.map(() => ({ weatherCode: null })))
