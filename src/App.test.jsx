@@ -4,8 +4,10 @@ import { act } from "react-dom/test-utils";
 import { MemoryRouter, Route, Routes, useLocation } from "react-router-dom";
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import App from "./App";
+import { clearFetchCache } from "./utils/cachedFetch";
 
 beforeEach(() => {
+  clearFetchCache();
   vi.stubGlobal(
     "fetch",
     vi.fn().mockResolvedValue({
