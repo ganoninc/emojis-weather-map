@@ -4,6 +4,7 @@ import EmojiWeatherMapSettings from "./Components/EmojiWeatherMapSettings";
 import EmojiWeatherMap from "./Components/EmojiWeatherMap";
 import EmojiWeatherMapStatus from "./Components/EmojiWeatherMapStatus";
 import { cachedFetchJson } from "./utils/cachedFetch";
+import { getSkyPhase, SKY_PHASES } from "./utils/skyPhase";
 import "./styles/App.scss";
 
 // Weather older than this is reloaded automatically. Open-Meteo updates its
@@ -39,7 +40,7 @@ class App extends Component {
       emojiWeatherMapTemplate: null,
       isLoadingTemplate: false,
       loadingActionsCount: 0,
-      isNight: false,
+      skyWeathers: [],
       lastUpdated: null,
       refreshKey: 0,
       timeZone: null,
@@ -95,17 +96,16 @@ class App extends Component {
   }
 
   handleWeatherLoaded(weathers) {
-    // Night theme when most of the country is in the dark. Keep the current
-    // theme if the weather couldn't be loaded.
+    // The sky follows the country's sun, recomputed on every clock tick. Keep
+    // the current sky if the weather couldn't be loaded.
     const known = weathers.filter((weather) => weather.isDay !== undefined);
     if (known.length === 0) {
       return;
     }
-    const nightCount = known.filter((weather) => !weather.isDay).length;
     const mainTimeZone = getMainTimeZone(known);
     const now = new Date();
     this.setState({
-      isNight: nightCount > known.length / 2,
+      skyWeathers: known,
       lastUpdated: now,
       now,
       timeZone: mainTimeZone.timeZone,
@@ -144,13 +144,14 @@ class App extends Component {
       emojiWeatherMapTemplate,
       isLoadingTemplate,
       loadingActionsCount,
-      isNight,
+      skyWeathers,
       lastUpdated,
       refreshKey,
       timeZone,
       timeZoneAbbreviation,
       now,
     } = this.state;
+    const skyPhase = getSkyPhase(skyWeathers, now);
     let mapView;
 
     if (isLoadingTemplate || !emojiWeatherMapTemplate) {
@@ -168,7 +169,20 @@ class App extends Component {
     }
     return (
       <ApiBaseUrlContext.Provider value={this.apiBaseUrl}>
-        <div className={isNight ? "App App--night" : "App"}>
+        <div className={"App App--" + skyPhase}>
+          {/* One layer per sky, cross-faded when the phase changes. */}
+          <div className="App__sky" aria-hidden="true">
+            {SKY_PHASES.map((phase) => (
+              <div
+                key={phase}
+                className={
+                  "App__skyLayer App__skyLayer--" +
+                  phase +
+                  (phase === skyPhase ? " App__skyLayer--active" : "")
+                }
+              ></div>
+            ))}
+          </div>
           <div className="container">
             <div className="row align-items-center App__body">
               <div className="col-12 App__settings">

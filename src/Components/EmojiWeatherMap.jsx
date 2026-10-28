@@ -8,6 +8,11 @@ import "../styles/EmojiWeatherMap.scss";
 // Open-Meteo refreshes "current" data every 15 minutes.
 const WEATHER_CACHE_TTL_MS = 15 * 60 * 1000;
 
+// Unix seconds to milliseconds. Missing during polar day or night.
+function toMilliseconds(seconds) {
+  return seconds ? seconds * 1000 : null;
+}
+
 class EmojiWeatherMap extends Component {
   static contextType = ApiBaseUrlContext;
 
@@ -51,6 +56,9 @@ class EmojiWeatherMap extends Component {
       "&longitude=" +
       coordinates.map((c) => c.longitude).join(",") +
       "&current=weather_code,is_day,temperature_2m" +
+      "&daily=sunrise,sunset&forecast_days=1" +
+      // Sun times as Unix timestamps, comparable with Date.now().
+      "&timeformat=unixtime" +
       "&timezone=auto";
 
     this.props.onLoading();
@@ -64,6 +72,8 @@ class EmojiWeatherMap extends Component {
           weatherCode: location.current.weather_code,
           isDay: location.current.is_day === 1,
           temperature: location.current.temperature_2m,
+          sunrise: toMilliseconds(location.daily && location.daily.sunrise[0]),
+          sunset: toMilliseconds(location.daily && location.daily.sunset[0]),
           timeZone: location.timezone,
           timeZoneAbbreviation: location.timezone_abbreviation,
         }));
