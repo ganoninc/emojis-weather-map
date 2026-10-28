@@ -1,19 +1,24 @@
 @import "bootstrap/scss/bootstrap";
 
+$day-sky: #cfe8fc;
+$dawn-sky-top: #a7c8f2;
+$dawn-sky-middle: #f7d4cf;
+$dawn-sky-bottom: #ffd59e;
+$dusk-sky-top: #aaa0d6;
+$dusk-sky-middle: #f2a495;
+$dusk-sky-bottom: #ffbd78;
 $night-sky-top: #070b1f;
 $night-sky-bottom: #1d2650;
 $night-text: #e3e7f7;
 $night-text-muted: #9aa3c7;
 $night-link: #a9bcff;
-$theme-transition: 1s ease;
+$theme-transition: 2s ease-in-out;
 
 .App {
   min-height: 100vh;
   transition: color $theme-transition;
 
-  // Night sky, faded in over the white page when it's night in the country.
-  &::before {
-    content: "";
+  &__sky {
     position: fixed;
     top: 0;
     right: 0;
@@ -21,28 +26,60 @@ $theme-transition: 1s ease;
     left: 0;
     z-index: -1;
     pointer-events: none;
+  }
+
+  // The active sky fades in on top of the previous one, which stays visible
+  // underneath until the fade is over, so skies never blend through white.
+  &__skyLayer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     opacity: 0;
-    transition: opacity $theme-transition;
-    background:
-      radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.9), transparent),
-      radial-gradient(1px 1px at 27% 72%, rgba(255, 255, 255, 0.6), transparent),
-      radial-gradient(1.5px 1.5px at 41% 9%, rgba(255, 255, 255, 0.8), transparent),
-      radial-gradient(1px 1px at 58% 33%, rgba(255, 255, 255, 0.5), transparent),
-      radial-gradient(1.5px 1.5px at 73% 14%, rgba(255, 255, 255, 0.9), transparent),
-      radial-gradient(1px 1px at 86% 61%, rgba(255, 255, 255, 0.6), transparent),
-      radial-gradient(1px 1px at 93% 27%, rgba(255, 255, 255, 0.7), transparent),
-      radial-gradient(1px 1px at 6% 54%, rgba(255, 255, 255, 0.5), transparent),
-      radial-gradient(1.5px 1.5px at 64% 86%, rgba(255, 255, 255, 0.6), transparent),
-      radial-gradient(1px 1px at 19% 91%, rgba(255, 255, 255, 0.5), transparent),
-      linear-gradient($night-sky-top, $night-sky-bottom);
+    transition: opacity 0s linear 2s;
+
+    &--active {
+      z-index: 1;
+      opacity: 1;
+      transition: opacity $theme-transition;
+    }
+
+    &--day {
+      background: $day-sky;
+    }
+
+    // Golden hours: a low sun glowing at the horizon.
+    &--dawn {
+      background:
+        radial-gradient(ellipse 80% 45% at 50% 100%, rgba(255, 236, 179, 0.85), transparent),
+        linear-gradient($dawn-sky-top, $dawn-sky-middle 55%, $dawn-sky-bottom);
+    }
+
+    &--dusk {
+      background:
+        radial-gradient(ellipse 80% 45% at 50% 100%, rgba(255, 196, 120, 0.8), transparent),
+        linear-gradient($dusk-sky-top, $dusk-sky-middle 55%, $dusk-sky-bottom);
+    }
+
+    &--night {
+      background:
+        radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1px 1px at 27% 72%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1.5px 1.5px at 41% 9%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 58% 33%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1.5px 1.5px at 73% 14%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1px 1px at 86% 61%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 93% 27%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 6% 54%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1.5px 1.5px at 64% 86%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 19% 91%, rgba(255, 255, 255, 0.5), transparent),
+        linear-gradient($night-sky-top, $night-sky-bottom);
+    }
   }
 
   &--night {
     color: $night-text;
-
-    &::before {
-      opacity: 1;
-    }
 
     a {
       color: $night-link;

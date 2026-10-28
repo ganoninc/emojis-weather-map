@@ -66,6 +66,19 @@ $offset-space-size-xs-height: $emoji-size-xs;
     white-space: nowrap;
     padding-top: 25px;
     padding-bottom: 25px;
+    // Center the rows vertically within the fixed map height. Auto margins
+    // (rather than justify-content: center) keep tall maps from overflowing
+    // above the top edge.
+    display: flex;
+    flex-direction: column;
+
+    > :first-child {
+        margin-top: auto;
+    }
+
+    > :last-child {
+        margin-bottom: auto;
+    }
 
     @include media-breakpoint-down(xl) {
         height: $map-size-xl;
@@ -114,7 +127,42 @@ $offset-space-size-xs-height: $emoji-size-xs;
 
     &__emoji {
         display: inline-block;
+        position: relative;
         @include responsive-emoji-size();
+        text-align: center;
+        cursor: default;
+        outline: none;
+
+        &:hover,
+        &:focus {
+            z-index: 1;
+
+            .emojiWeatherMap__emojiLabel {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    // Shown above the emoji on hover. Sized in px so it stays readable
+    // whatever the emoji size.
+    &__emojiLabel {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: rgba(20, 24, 40, 0.9);
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 14px;
+        line-height: 1.4;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.15s ease, visibility 0.15s ease;
     }
 
     &__offsetSpace {
