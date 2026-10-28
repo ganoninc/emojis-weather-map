@@ -151,13 +151,22 @@ class EmojiWeatherMapEmoji extends Component {
       const iconCode = getIconCode(weather.weatherCode, weather.isDay);
       const currentWeatherIcon = this.getCurrentWeatherIcon(iconCode);
       const currentWeatherLabel = this.getCurrentWeatherLabel(iconCode);
+      const label =
+        typeof weather.temperature === "number"
+          ? currentWeatherLabel + " · " + Math.round(weather.temperature) + "°C"
+          : currentWeatherLabel;
+      // Focusable so the label also shows on tap and keyboard navigation.
       return (
         <span
           className="emojiWeatherMap__emoji"
           role="img"
-          aria-label={currentWeatherLabel}
+          aria-label={label}
+          tabIndex={0}
         >
           {currentWeatherIcon}
+          <span className="emojiWeatherMap__emojiLabel" aria-hidden="true">
+            {label}
+          </span>
         </span>
       );
     }
