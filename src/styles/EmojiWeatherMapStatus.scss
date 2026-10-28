@@ -1,11 +1,28 @@
 .EmojiWeatherMapStatus {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    column-gap: 0.75em;
+    gap: 0.5em;
     min-height: 44px; // no layout jump while the weather loads
     padding-top: 15pt;
+
+    // Side by side once there is room for the label and the button: below
+    // Bootstrap's md breakpoint the column is too narrow for both on one line.
+    @media (min-width: 768px) {
+        flex-direction: row;
+        gap: 0.75em;
+    }
+
+    // Centered when stacked, so a label wrapping on narrow phones stays
+    // aligned with the button below it.
+    &__localTime {
+        text-align: center;
+
+        @media (min-width: 768px) {
+            text-align: left;
+        }
+    }
 
     &__timeZone {
         font-size: 0.85em;
@@ -25,6 +42,7 @@
         background: rgba(255, 255, 255, 0.35);
         color: inherit;
         font-size: 0.9em;
+        white-space: nowrap;
         cursor: pointer;
         transition: background-color 0.2s ease;
 
