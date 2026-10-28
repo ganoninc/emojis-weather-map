@@ -5,11 +5,9 @@ import EmojiWeatherMap from "./Components/EmojiWeatherMap";
 import EmojiWeatherMapStatus from "./Components/EmojiWeatherMapStatus";
 import { cachedFetchJson } from "./utils/cachedFetch";
 import { getSkyPhase, SKY_PHASES } from "./utils/skyPhase";
+import { getWeatherExpiry } from "./utils/weatherSchedule";
 import "./styles/App.scss";
 
-// Weather older than this is reloaded automatically. Open-Meteo updates its
-// current conditions every 15 minutes.
-const AUTO_REFRESH_DELAY = 15 * 60 * 1000;
 const CLOCK_TICK_DELAY = 30 * 1000;
 
 // The time zone shared by most of the map's emojis.
@@ -61,8 +59,10 @@ class App extends Component {
     document.removeEventListener("visibilitychange", this.handleClockTick);
   }
 
-  // Keeps the local time and "updated X min ago" current, and reloads stale
-  // weather while the page is visible (e.g. when coming back to the tab).
+  // Keeps the local time and "updated X min ago" current, and reloads the
+  // weather once Open-Meteo has published newer conditions (the same expiry as
+  // the fetch cache). Nothing happens while the tab is hidden: coming back to
+  // it ticks right away and refreshes if needed.
   handleClockTick() {
     if (document.hidden) {
       return;
@@ -73,7 +73,7 @@ class App extends Component {
     if (
       lastUpdated &&
       loadingActionsCount === 0 &&
-      now - lastUpdated >= AUTO_REFRESH_DELAY
+      now >= getWeatherExpiry(lastUpdated.getTime())
     ) {
       this.handleRefresh();
     }
@@ -95,7 +95,7 @@ class App extends Component {
     });
   }
 
-  handleWeatherLoaded(weathers) {
+  handleWeatherLoaded(weathers, fetchedAt) {
     // The sky follows the country's sun, recomputed on every clock tick. Keep
     // the current sky if the weather couldn't be loaded.
     const known = weathers.filter((weather) => weather.isDay !== undefined);
@@ -103,11 +103,10 @@ class App extends Component {
       return;
     }
     const mainTimeZone = getMainTimeZone(known);
-    const now = new Date();
     this.setState({
       skyWeathers: known,
-      lastUpdated: now,
-      now,
+      lastUpdated: new Date(fetchedAt),
+      now: new Date(),
       timeZone: mainTimeZone.timeZone,
       timeZoneAbbreviation: mainTimeZone.timeZoneAbbreviation,
     });

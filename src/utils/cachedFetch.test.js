@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
-import { cachedFetchJson, clearFetchCache } from "./cachedFetch";
+import { cachedFetchJson, clearFetchCache, getFetchTime } from "./cachedFetch";
 
 beforeEach(() => {
   clearFetchCache();
@@ -31,13 +31,29 @@ it("shares an in-flight request", async () => {
   expect(fetch).toHaveBeenCalledTimes(1);
 });
 
-it("refetches once the TTL has expired", async () => {
+it("refetches once the response has expired", async () => {
   vi.useFakeTimers();
-  await cachedFetchJson("/a", 1000);
-  vi.advanceTimersByTime(1001);
-  await cachedFetchJson("/a", 1000);
+  const getExpiry = (fetchedAt) => fetchedAt + 1000;
+  await cachedFetchJson("/a", { getExpiry });
+  vi.advanceTimersByTime(999);
+  await cachedFetchJson("/a", { getExpiry });
+  expect(fetch).toHaveBeenCalledTimes(1);
+
+  vi.advanceTimersByTime(1);
+  await cachedFetchJson("/a", { getExpiry });
+  expect(fetch).toHaveBeenCalledTimes(2);
+});
+
+it("refetches on refresh and remembers the fetch time", async () => {
+  vi.useFakeTimers();
+  await cachedFetchJson("/a");
+  const firstFetch = getFetchTime("/a");
+  vi.advanceTimersByTime(5000);
+  await cachedFetchJson("/a", { refresh: true });
 
   expect(fetch).toHaveBeenCalledTimes(2);
+  expect(getFetchTime("/a")).toBe(firstFetch + 5000);
+  expect(getFetchTime("/b")).toBeNull();
 });
 
 it("does not cache failures", async () => {

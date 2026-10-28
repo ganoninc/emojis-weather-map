@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import { ApiBaseUrlContext } from "../Context/ApiBaseUrlContext";
 import EmojiWeatherMapRow from "./EmojiWeatherMapRow";
 // import EmojiWeatherMapLabel from "./EmojiWeatherMapLabel";
-import { cachedFetchJson } from "../utils/cachedFetch";
+import { cachedFetchJson, getFetchTime } from "../utils/cachedFetch";
+import { getWeatherExpiry } from "../utils/weatherSchedule";
 import "../styles/EmojiWeatherMap.scss";
-
-// Open-Meteo refreshes "current" data every 15 minutes.
-const WEATHER_CACHE_TTL_MS = 15 * 60 * 1000;
 
 // Unix seconds to milliseconds. Missing during polar day or night.
 function toMilliseconds(seconds) {
@@ -45,7 +43,7 @@ class EmojiWeatherMap extends Component {
     }
   }
 
-  loadWeather(bypassCache = false) {
+  loadWeather(refresh = false) {
     const coordinates = this.getCoordinates();
 
     // Open-Meteo accepts comma-separated lists: one request for the whole map.
@@ -64,7 +62,10 @@ class EmojiWeatherMap extends Component {
     this.props.onLoading();
 
     // A refresh skips the cache, otherwise it would return the same data.
-    cachedFetchJson(dataProviderEndpoint, bypassCache ? 0 : WEATHER_CACHE_TTL_MS)
+    cachedFetchJson(dataProviderEndpoint, {
+      getExpiry: getWeatherExpiry,
+      refresh,
+    })
       .then((data) => {
         // A single location is returned as an object, several as an array.
         const locations = Array.isArray(data) ? data : [data];
@@ -81,7 +82,9 @@ class EmojiWeatherMap extends Component {
       .catch(() => coordinates.map(() => ({ weatherCode: null })))
       .then((weathers) => {
         this.props.onLoaded();
-        this.props.onWeatherLoaded(weathers);
+        // Cached weather keeps its original fetch time, so "updated X min
+        // ago" and the auto-refresh stay accurate.
+        this.props.onWeatherLoaded(weathers, getFetchTime(dataProviderEndpoint));
         this.setState({ weathers });
       });
   }
