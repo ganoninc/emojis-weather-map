@@ -5,6 +5,24 @@ import EmojiWeatherMap from "./Components/EmojiWeatherMap";
 import EmojiWeatherMapStatus from "./Components/EmojiWeatherMapStatus";
 import "./styles/App.scss";
 
+// Weather older than this is reloaded automatically. Open-Meteo updates its
+// current conditions every 15 minutes.
+const AUTO_REFRESH_DELAY = 15 * 60 * 1000;
+const CLOCK_TICK_DELAY = 30 * 1000;
+
+// The time zone shared by most of the map's emojis.
+function getMainTimeZone(weathers) {
+  const counts = {};
+  let main = null;
+  weathers.forEach((weather) => {
+    counts[weather.timeZone] = (counts[weather.timeZone] || 0) + 1;
+    if (!main || counts[weather.timeZone] > counts[main.timeZone]) {
+      main = weather;
+    }
+  });
+  return main;
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +32,7 @@ class App extends Component {
     this.handleSelectedMap = this.handleSelectedMap.bind(this);
     this.handleWeatherLoaded = this.handleWeatherLoaded.bind(this);
     this.handleRefresh = this.handleRefresh.bind(this);
+    this.handleClockTick = this.handleClockTick.bind(this);
 
     this.state = {
       emojiWeatherMapTemplate: null,
@@ -22,9 +41,40 @@ class App extends Component {
       isNight: false,
       lastUpdated: null,
       refreshKey: 0,
+      timeZone: null,
+      timeZoneAbbreviation: null,
+      now: new Date(),
     };
 
     this.apiBaseUrl = import.meta.env.VITE_WEATHER_API_BASE_URL;
+  }
+
+  componentDidMount() {
+    this.clockInterval = setInterval(this.handleClockTick, CLOCK_TICK_DELAY);
+    document.addEventListener("visibilitychange", this.handleClockTick);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.clockInterval);
+    document.removeEventListener("visibilitychange", this.handleClockTick);
+  }
+
+  // Keeps the local time and "updated X min ago" current, and reloads stale
+  // weather while the page is visible (e.g. when coming back to the tab).
+  handleClockTick() {
+    if (document.hidden) {
+      return;
+    }
+    const now = new Date();
+    const { lastUpdated, loadingActionsCount } = this.state;
+    this.setState({ now });
+    if (
+      lastUpdated &&
+      loadingActionsCount === 0 &&
+      now - lastUpdated >= AUTO_REFRESH_DELAY
+    ) {
+      this.handleRefresh();
+    }
   }
 
   handleLoadingActionStart() {
@@ -51,9 +101,14 @@ class App extends Component {
       return;
     }
     const nightCount = known.filter((weather) => !weather.isDay).length;
+    const mainTimeZone = getMainTimeZone(known);
+    const now = new Date();
     this.setState({
       isNight: nightCount > known.length / 2,
-      lastUpdated: new Date(),
+      lastUpdated: now,
+      now,
+      timeZone: mainTimeZone.timeZone,
+      timeZoneAbbreviation: mainTimeZone.timeZoneAbbreviation,
     });
   }
 
@@ -66,7 +121,12 @@ class App extends Component {
   }
 
   handleSelectedMap(mapTemplateURL) {
-    this.setState({ isLoadingTemplate: true, lastUpdated: null });
+    this.setState({
+      isLoadingTemplate: true,
+      lastUpdated: null,
+      timeZone: null,
+      timeZoneAbbreviation: null,
+    });
 
     fetch(mapTemplateURL)
       .then((response) => response.json())
@@ -86,6 +146,9 @@ class App extends Component {
       isNight,
       lastUpdated,
       refreshKey,
+      timeZone,
+      timeZoneAbbreviation,
+      now,
     } = this.state;
     let mapView;
 
@@ -116,6 +179,10 @@ class App extends Component {
               </div>
               <div className="col-12 App__status">
                 <EmojiWeatherMapStatus
+                  country={emojiWeatherMapTemplate}
+                  timeZone={timeZone}
+                  timeZoneAbbreviation={timeZoneAbbreviation}
+                  now={now}
                   lastUpdated={lastUpdated}
                   isRefreshing={loadingActionsCount > 0}
                   onRefresh={this.handleRefresh}

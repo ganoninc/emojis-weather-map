@@ -46,7 +46,8 @@ class EmojiWeatherMap extends Component {
       coordinates.map((c) => c.latitude).join(",") +
       "&longitude=" +
       coordinates.map((c) => c.longitude).join(",") +
-      "&current=weather_code,is_day";
+      "&current=weather_code,is_day" +
+      "&timezone=auto";
 
     this.props.onLoading();
 
@@ -58,6 +59,8 @@ class EmojiWeatherMap extends Component {
         return locations.map((location) => ({
           weatherCode: location.current.weather_code,
           isDay: location.current.is_day === 1,
+          timeZone: location.timezone,
+          timeZoneAbbreviation: location.timezone_abbreviation,
         }));
       })
       .catch(() => coordinates.map(() => ({ weatherCode: null })))
