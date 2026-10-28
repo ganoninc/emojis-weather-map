@@ -1,10 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { act } from "react-dom/test-utils";
+import React, { act } from "react";
+import { createRoot } from "react-dom/client";
 import { MemoryRouter, Route, Routes, useLocation } from "react-router-dom";
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import App from "./App";
 import { clearFetchCache } from "./utils/cachedFetch";
+
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 beforeEach(() => {
   clearFetchCache();
@@ -23,49 +24,51 @@ afterEach(() => {
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
+  const root = createRoot(div);
 
-  ReactDOM.render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>,
-    div,
-  );
-  ReactDOM.unmountComponentAtNode(div);
+  act(() => {
+    root.render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    );
+  });
+  act(() => root.unmount());
 });
 
 function renderAt(path) {
   const div = document.createElement("div");
+  const root = createRoot(div);
   let location;
   function LocationSpy() {
     location = useLocation();
     return null;
   }
   act(() => {
-    ReactDOM.render(
+    root.render(
       <MemoryRouter initialEntries={[path]}>
         <Routes>
           <Route path="/:country?" element={<App />} />
         </Routes>
         <LocationSpy />
       </MemoryRouter>,
-      div,
     );
   });
-  return { div, getLocation: () => location };
+  return { div, root, getLocation: () => location };
 }
 
 it("loads the country from the URL", () => {
-  const { div } = renderAt("/japan");
+  const { div, root } = renderAt("/japan");
 
   expect(div.querySelector("input").value).toContain("Japan");
   expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/templates\/japan\.json$/));
-  ReactDOM.unmountComponentAtNode(div);
+  act(() => root.unmount());
 });
 
 it("redirects an unknown country to the default one", () => {
-  const { div, getLocation } = renderAt("/atlantis");
+  const { div, root, getLocation } = renderAt("/atlantis");
 
   expect(getLocation().pathname).toBe("/");
   expect(div.querySelector("input").value).toContain("France");
-  ReactDOM.unmountComponentAtNode(div);
+  act(() => root.unmount());
 });
