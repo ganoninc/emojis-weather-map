@@ -2,7 +2,7 @@
 
 A weather forecast map where **emojis bring the weather to life**! 🗺️☀️🌧️
 
-🔗 **Try it live:** [ganoninc.github.io/emojis-weather-map](https://ganoninc.github.io/emojis-weather-map)
+🔗 **Try it live:** https://emojis-weather-map.romain-5a7.workers.dev
 
 ## 📖 About
 
